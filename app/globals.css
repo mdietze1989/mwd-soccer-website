@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0c0f0e;
+  --color-ink-2: #141817;
+  --color-ink-3: #1c211f;
+  --color-paper: #eeece4;
+  --color-paper-dim: #cfccc0;
+  --color-cream: #f6f4ee;
+  --color-accent: #b6893f;
+  --color-accent-soft: #8c6b34;
+  --color-line-dark: rgba(238, 236, 228, 0.14);
+  --color-line-light: #d9d6c8;
+  --color-muted-dark: #a7ada4;
+  --color-muted-light: #55574f;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-ink-3: var(--color-ink-3);
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-cream: var(--color-cream);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-muted-dark: var(--color-muted-dark);
+  --color-muted-light: var(--color-muted-light);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
+a {
+  color: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.hairline-dark {
+  border-color: var(--color-line-dark);
+}
+
+.hairline-light {
+  border-color: var(--color-line-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.rise-in-1 {
+  animation-delay: 0.05s;
+}
+.rise-in-2 {
+  animation-delay: 0.16s;
+}
+.rise-in-3 {
+  animation-delay: 0.27s;
+}
+.rise-in-4 {
+  animation-delay: 0.38s;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
