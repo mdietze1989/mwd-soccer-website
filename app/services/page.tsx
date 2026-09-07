@@ -17,7 +17,7 @@ export default function ServicesPage() {
           <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
             Representation for every stage of a professional career.
           </h1>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/75">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
             From the transition out of college or academy soccer to
             contracts, transfers and the decisions that follow, MWD manages
             the work behind a player&apos;s next move.
@@ -31,7 +31,7 @@ export default function ServicesPage() {
             {services.map((service) => (
               <div key={service.slug} className="border-b hairline-dark p-8 md:border-r md:p-10 md:[&:nth-child(2n)]:border-r-0">
                 <h2 className="font-display text-2xl text-paper">{service.title}</h2>
-                <p className="mt-3 max-w-md text-[15px] leading-relaxed text-paper/80">
+                <p className="mt-3 max-w-md text-[15px] leading-relaxed text-paper/88">
                   {service.description}
                 </p>
               </div>
@@ -47,7 +47,7 @@ export default function ServicesPage() {
               <h2 className="max-w-lg font-display text-3xl text-paper">
                 Considering representation or your next professional move?
               </h2>
-              <p className="mt-3 max-w-md text-[15px] text-paper/70">
+              <p className="mt-3 max-w-md text-[15px] text-paper/80">
                 Speak directly with Mike about your situation.
               </p>
             </div>

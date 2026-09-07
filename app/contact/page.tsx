@@ -34,7 +34,7 @@ export default function ContactPage() {
             <h1 className="mt-3 font-display text-4xl text-paper md:text-5xl">
               Let&apos;s talk about your next move.
             </h1>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/80">
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/88">
               Players and families can speak directly with Mike about
               representation, professional pathways and the transition into
               the professional game.

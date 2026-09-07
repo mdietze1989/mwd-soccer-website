@@ -21,7 +21,7 @@ export default function InternationalNetworkPage() {
           <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
             One point of contact. A network across three continents.
           </h1>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/75">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
             MWD players work directly with Mike Dietze, supported by
             FIFA-licensed partners and club relationships across North
             America, West Africa and Europe.
@@ -40,7 +40,8 @@ export default function InternationalNetworkPage() {
           <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
             {internationalPartners.map((person) => (
               <div key={person.slug} className="flex gap-6 border hairline-dark p-6">
-                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-ink-2">
+                {/* Gradient placeholder avoids a flat "empty circle" look while the (low-res) photo lazy-loads */}
+                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ink-2 to-ink-3">
                   <Image
                     src={person.image!}
                     alt={person.imageAlt ?? person.name}
@@ -50,10 +51,10 @@ export default function InternationalNetworkPage() {
                   />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-dark">Independent International Partner</p>
+                  <p className="text-[13px] text-muted-dark">Independent International Partner</p>
                   <h3 className="mt-1 font-display text-xl text-paper">{person.name}</h3>
                   <p className="mt-1 text-sm text-accent">{person.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-paper/80">{person.bio}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/88">{person.bio}</p>
                 </div>
               </div>
             ))}
@@ -65,7 +66,7 @@ export default function InternationalNetworkPage() {
         <Container>
           <div className="max-w-2xl border hairline-dark p-8">
             <h3 className="font-display text-xl text-paper">{transferRoomCredential.title}</h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-paper/85">
+            <p className="mt-3 text-[15px] leading-relaxed text-paper/92">
               {transferRoomCredential.description}
             </p>
           </div>

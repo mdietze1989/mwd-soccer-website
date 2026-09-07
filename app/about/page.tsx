@@ -24,6 +24,8 @@ export default function AboutPage() {
       <section className="border-b hairline-dark py-24">
         <Container>
           <div className="grid grid-cols-1 gap-14 md:grid-cols-[minmax(0,360px)_1fr]">
+            {/* Fixed aspect ratio + fill/object-cover: a higher-resolution replacement can drop in
+                via mike.image with no layout change. Current crop/dimensions preserved for now. */}
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
               <Image
                 src={mike.image!}
@@ -41,7 +43,7 @@ export default function AboutPage() {
               </h1>
               <p className="mt-2 text-muted-dark">FIFA-Licensed Agent</p>
 
-              <div className="mt-8 space-y-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
+              <div className="mt-8 space-y-5 max-w-xl text-[15px] leading-relaxed text-paper/92">
                 <p>
                   Mike Dietze founded MWD Soccer after careers in professional
                   soccer and sports business. A former Fort Lauderdale
@@ -68,7 +70,7 @@ export default function AboutPage() {
 
               <ul className="mt-8 grid grid-cols-1 gap-3 border-t hairline-dark pt-8 sm:grid-cols-1">
                 {credentials.map((credential) => (
-                  <li key={credential} className="flex gap-3 text-sm text-paper/80">
+                  <li key={credential} className="flex gap-3 text-sm text-paper/88">
                     <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
                     {credential}
                   </li>
@@ -96,7 +98,7 @@ export default function AboutPage() {
               <h2 className="mt-3 font-display text-3xl text-paper">
                 Representation is personal.
               </h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/80">
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/88">
                 Players work directly with Mike — from the first evaluation
                 and club conversation through negotiation, relocation and the
                 decisions that follow. The objective is not simply to secure a
@@ -114,7 +116,8 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
             {advisors.map((person) => (
               <div key={person.slug} className="flex gap-6">
-                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-ink-2">
+                {/* Gradient placeholder avoids a flat "empty circle" look while the (low-res) photo lazy-loads */}
+                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ink-2 to-ink-3">
                   {person.image ? (
                     <Image
                       src={person.image}
@@ -135,7 +138,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="font-display text-xl text-paper">{person.name}</h3>
                   <p className="mt-1 text-sm text-accent">{person.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-paper/80">{person.bio}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/88">{person.bio}</p>
                 </div>
               </div>
             ))}

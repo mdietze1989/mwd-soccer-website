@@ -15,7 +15,7 @@ export default function Error({
         <h1 className="mt-3 max-w-xl font-display text-4xl text-paper">
           This page hit an error.
         </h1>
-        <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/75">
+        <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/85">
           Try again, or head back to the homepage.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">

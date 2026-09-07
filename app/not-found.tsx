@@ -9,7 +9,7 @@ export default function NotFound() {
         <h1 className="mt-3 max-w-xl font-display text-4xl text-paper md:text-5xl">
           That page doesn&apos;t exist.
         </h1>
-        <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/75">
+        <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/85">
           The page you&apos;re looking for may have moved. Try the track record,
           or head back home.
         </p>

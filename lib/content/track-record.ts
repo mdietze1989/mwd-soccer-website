@@ -11,6 +11,7 @@ export type CareerStep = {
   league?: string;
   period: string;
   note: string;
+  status?: string; // e.g. "Term Sheet" — flags a step that is not yet an executed contract
 };
 
 export type ProfessionalDeal = {
@@ -51,8 +52,9 @@ export const professionalDeals: ProfessionalDeal[] = [
     metaLine: "USL Championship | 2023–2028",
     careerLine: "Loudoun United → New Mexico United → Charleston Battery → Athletic Club Boise",
     homeSummary:
-      "Four clubs across six professional seasons, including multi-year terms with Charleston and Boise.",
-    summary: "Four clubs across six professional seasons.",
+      "Three USL Championship clubs across four completed professional seasons, followed by a two-year term sheet from Athletic Club Boise for 2027–2028.",
+    summary:
+      "Three completed USL Championship moves, with a two-year Athletic Club Boise term sheet secured ahead of the club's 2027 launch.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/landry/charleston-signing.jpg",
@@ -72,7 +74,7 @@ export const professionalDeals: ProfessionalDeal[] = [
       { club: "Loudoun United", league: "USL Championship", period: "2023", note: "First U.S. professional contract" },
       { club: "New Mexico United", league: "USL Championship", period: "2024", note: "Transfer completed for the 2024 season" },
       { club: "Charleston Battery", league: "USL Championship", period: "2025–2026", note: "Two-year agreement selected from three competing USL Championship offers" },
-      { club: "Athletic Club Boise", league: "USL Championship", period: "2027–2028", note: "Two-year term sheet ahead of the club's USL Championship launch" },
+      { club: "Athletic Club Boise", league: "USL Championship", period: "2027–2028", note: "Two-year term sheet secured for 2027–2028", status: "Term Sheet" },
     ],
   },
   {

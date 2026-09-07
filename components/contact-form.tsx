@@ -88,7 +88,7 @@ export function ContactForm() {
     return (
       <div className="space-y-3" role="status">
         <h2 className="font-display text-2xl text-paper">Message sent.</h2>
-        <p className="text-sm text-paper/80">
+        <p className="text-sm text-paper/88">
           Thanks for reaching out — Mike will get back to you directly.
         </p>
       </div>
@@ -227,7 +227,7 @@ export function ContactForm() {
         >
           {status === "submitting" ? "Sending…" : "Start the Conversation"}
         </button>
-        <p className="mt-3 text-xs text-muted-dark">
+        <p className="mt-3 text-[13px] text-muted-dark">
           Prefer email? Reach Mike directly at{" "}
           <a href={`mailto:${siteConfig.emails.founder}`} className="text-accent hover:underline">
             {siteConfig.emails.founder}

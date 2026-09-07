@@ -19,7 +19,7 @@ const categories = [
   { id: "authorizations", label: "International Mandates" },
 ];
 
-function Timeline({ steps }: { steps: { club: string; league?: string; period: string; note: string }[] }) {
+function Timeline({ steps }: { steps: { club: string; league?: string; period: string; note: string; status?: string }[] }) {
   return (
     <ol className="mt-6 space-y-4 border-t hairline-dark pt-6">
       {steps.map((step, i) => (
@@ -28,12 +28,19 @@ function Timeline({ steps }: { steps: { club: string; league?: string; period: s
             {String(i + 1).padStart(2, "0")}
           </span>
           <div>
-            <p className="text-paper">
-              {step.club}
-              {step.league ? (
-                <span className="text-muted-dark"> &middot; {step.league}</span>
-              ) : null}
-              <span className="text-muted-dark"> &middot; {step.period}</span>
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-paper">
+              <span>
+                {step.club}
+                {step.league ? (
+                  <span className="text-muted-dark"> &middot; {step.league}</span>
+                ) : null}
+                <span className="text-muted-dark"> &middot; {step.period}</span>
+              </span>
+              {step.status && (
+                <span className="rounded-full border border-accent/50 px-2 py-0.5 text-[11px] uppercase tracking-wide text-accent">
+                  {step.status}
+                </span>
+              )}
             </p>
             <p className="mt-1 text-sm text-muted-dark">{step.note}</p>
           </div>
@@ -55,7 +62,7 @@ export default function TrackRecordPage() {
           <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
             Your first professional contract is the beginning — not the destination.
           </h1>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/75">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
             Contracts, transfers, trials and club opportunities completed
             across the U.S. and international game.
           </p>
@@ -115,7 +122,7 @@ export default function TrackRecordPage() {
                 <h3 className="mt-1 font-display text-2xl text-paper">
                   {landry.player}
                 </h3>
-                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-paper/85">
+                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-paper/92">
                   {landry.summary}
                 </p>
                 {landry.career && <Timeline steps={landry.career} />}
@@ -164,7 +171,7 @@ export default function TrackRecordPage() {
                   <h3 className="mt-1 font-display text-2xl text-paper">
                     {deal.player}
                   </h3>
-                  <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-paper/85">
+                  <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-paper/92">
                     {deal.summary}
                   </p>
                   {deal.career && deal.career.length > 0 && <Timeline steps={deal.career} />}
@@ -209,7 +216,7 @@ export default function TrackRecordPage() {
                 <div>
                   <p className="text-sm text-muted-dark">{o.program}</p>
                   <h3 className="mt-1 font-display text-xl text-paper">{o.player}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-paper/80">{o.detail}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-paper/88">{o.detail}</p>
                 </div>
               </div>
             ))}
@@ -235,7 +242,7 @@ export default function TrackRecordPage() {
                   <p className="text-sm text-accent">{a.scope}</p>
                   <h3 className="mt-1 font-display text-xl text-paper">{a.player}</h3>
                 </div>
-                <p className="text-[15px] leading-relaxed text-paper/85">{a.detail}</p>
+                <p className="text-[15px] leading-relaxed text-paper/92">{a.detail}</p>
               </div>
             ))}
           </div>

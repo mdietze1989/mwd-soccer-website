@@ -11,7 +11,7 @@
   --color-accent-soft: #8c6b34;
   --color-line-dark: rgba(238, 236, 228, 0.14);
   --color-line-light: #d9d6c8;
-  --color-muted-dark: #a7ada4;
+  --color-muted-dark: #bbc2b8; /* brightened ~12% from #a7ada4 for legibility */
   --color-muted-light: #55574f;
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;

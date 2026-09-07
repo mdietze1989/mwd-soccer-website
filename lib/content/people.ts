@@ -8,6 +8,10 @@ export type Person = {
 };
 
 // Core team — people directly involved in MWD Soccer's day-to-day work.
+//
+// Bryan Longo and John McCluskey's photos are small, low-resolution source
+// files (pulled from an older site version) — candidates for a future
+// high-resolution replacement when available. Do not upscale/sharpen them.
 export const coreTeam: Person[] = [
   {
     slug: "mike-dietze",
@@ -22,7 +26,7 @@ export const coreTeam: Person[] = [
     name: "Bryan Longo",
     title: "Head of Scouting",
     bio: "Leads player identification, video review and scouting coordination across MWD's domestic and international network.",
-    image: "/images/team/bryan-longo.jpg",
+    image: "/images/team/bryan-longo.jpg", // low-res source — replace when a higher-resolution photo is available
     imageAlt: "Bryan Longo, Head of Scouting at MWD Soccer",
   },
   {
@@ -30,19 +34,22 @@ export const coreTeam: Person[] = [
     name: "John McCluskey",
     title: "Strategic Advisor",
     bio: "Advises MWD on commercial strategy, marketing and player brand development.",
-    image: "/images/team/john-mccluskey.jpg",
+    image: "/images/team/john-mccluskey.jpg", // low-res source — replace when a higher-resolution photo is available
     imageAlt: "John McCluskey, Strategic Advisor at MWD Soccer",
   },
 ];
 
 // International partners — independent, FIFA-licensed collaborators, not staff.
+//
+// Boly Gaye Seck Sonko and Paolo Maria Grimaldi's photos are also candidates
+// for a future high-resolution replacement — keep as-is for now.
 export const internationalPartners: Person[] = [
   {
     slug: "boly-gaye-seck-sonko",
     name: "Boly Gaye Seck Sonko",
     title: "FIFA-Licensed Agent | Senegal and West Africa",
     bio: "Based in Senegal, Boly collaborates with MWD on player identification, representation and club opportunities connecting West Africa with North American and European markets.",
-    image: "/images/partners/boly-sonko.jpg",
+    image: "/images/partners/boly-sonko.jpg", // low-res source — replace when a higher-resolution photo is available
     imageAlt: "Boly Gaye Seck Sonko",
   },
   {
@@ -50,7 +57,7 @@ export const internationalPartners: Person[] = [
     name: "Paolo Maria Grimaldi",
     title: "FIFA-Licensed Agent | Italy and Europe",
     bio: "Based in Italy, Paolo collaborates with MWD on European player access, club relationships and cross-border assignments, including matters reflected in MWD's Track Record.",
-    image: "/images/partners/paolo-grimaldi.jpg",
+    image: "/images/partners/paolo-grimaldi.jpg", // low-res source — replace when a higher-resolution photo is available
     imageAlt: "Paolo Maria Grimaldi",
   },
 ];

@@ -32,13 +32,13 @@ export function SiteFooter() {
                 <a href={`mailto:${siteConfig.emails.founder}`} className="hover:text-paper">
                   {siteConfig.emails.founder}
                 </a>
-                <span className="block text-xs text-muted-dark/70">Players &amp; families</span>
+                <span className="block text-[13px] text-muted-dark/70">Players &amp; families</span>
               </li>
               <li>
                 <a href={`mailto:${siteConfig.emails.primary}`} className="hover:text-paper">
                   {siteConfig.emails.primary}
                 </a>
-                <span className="block text-xs text-muted-dark/70">Scouting submissions</span>
+                <span className="block text-[13px] text-muted-dark/70">Scouting submissions</span>
               </li>
               <li>
                 <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`} className="hover:text-paper">
@@ -50,7 +50,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t hairline-dark pt-6 text-xs text-muted-dark md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t hairline-dark pt-6 text-[13px] text-muted-dark md:flex-row md:items-center md:justify-between">
           <p>
             &copy; {year} {siteConfig.legalName}. {siteConfig.fifa.licenseLabel}.
           </p>

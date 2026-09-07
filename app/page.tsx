@@ -43,7 +43,7 @@ export default function HomePage() {
             <h1 className="rise-in rise-in-2 mt-4 font-display text-5xl leading-[1.05] text-paper md:text-6xl">
               From college and academy soccer to the professional game.
             </h1>
-            <p className="rise-in rise-in-3 mt-6 max-w-lg text-lg text-paper/90">
+            <p className="rise-in rise-in-3 mt-6 max-w-lg text-lg text-paper/95">
               MWD Soccer represents ambitious players through club placement,
               contract negotiation and every move that follows — across the
               United States and internationally.
@@ -62,7 +62,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-px overflow-hidden border hairline-dark bg-ink-2 md:grid-cols-4">
             {credibilityStrip.map((item) => (
               <div key={item} className="bg-ink px-5 py-6 text-center">
-                <p className="text-sm text-paper/90">{item}</p>
+                <p className="text-sm text-paper/95">{item}</p>
               </div>
             ))}
           </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
               <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
                 Professional careers are built move by move.
               </h2>
-              <p className="mt-3 max-w-lg text-[15px] text-paper/70">
+              <p className="mt-3 max-w-lg text-[15px] text-paper/80">
                 A selection of contracts, transfers and professional
                 opportunities completed for MWD players.
               </p>
@@ -107,7 +107,7 @@ export default function HomePage() {
                     {deal.player}
                   </h3>
                   <p className="mt-2 text-sm text-accent">{deal.careerLine}</p>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-paper/75">
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-paper/85">
                     {deal.homeSummary}
                   </p>
                 </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
               <h2 className="mt-3 font-display text-3xl text-paper md:text-4xl">
                 {mike.name}
               </h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/80">
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/88">
                 Mike personally leads every MWD player relationship — from the
                 first evaluation and club conversation through negotiation,
                 relocation, contract decisions and the next move.
@@ -155,7 +155,7 @@ export default function HomePage() {
           <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
             Trusted with specific opportunities across international markets.
           </h2>
-          <p className="mt-3 max-w-lg text-[15px] text-paper/70">
+          <p className="mt-3 max-w-lg text-[15px] text-paper/80">
             MWD has received club- and player-side authorization to pursue
             defined opportunities involving MLS and international clubs.
           </p>
@@ -185,7 +185,7 @@ export default function HomePage() {
               <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
                 Local accountability. International reach.
               </h2>
-              <p className="mt-3 max-w-lg text-[15px] text-paper/70">
+              <p className="mt-3 max-w-lg text-[15px] text-paper/80">
                 MWD players work directly with Mike Dietze, supported by
                 FIFA-licensed partners in West Africa and Europe and
                 relationships with club decision-makers throughout the United
@@ -198,7 +198,8 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
             {internationalPartners.map((person) => (
               <div key={person.slug} className="flex gap-5 border hairline-dark p-6">
-                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink-2">
+                {/* Gradient placeholder avoids a flat "empty circle" look while the (low-res) photo lazy-loads */}
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ink-2 to-ink-3">
                   <Image
                     src={person.image!}
                     alt={person.imageAlt ?? person.name}
@@ -225,7 +226,7 @@ export default function HomePage() {
               <h2 className="max-w-lg font-display text-3xl text-paper md:text-4xl">
                 Ready to discuss your next move?
               </h2>
-              <p className="mt-3 max-w-md text-[15px] text-paper/70">
+              <p className="mt-3 max-w-md text-[15px] text-paper/80">
                 Players and families can speak directly with Mike about
                 representation, professional pathways and the decisions ahead.
               </p>
