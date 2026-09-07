@@ -5,7 +5,7 @@ import { services } from "@/lib/content/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "MWD Soccer's services: player representation, contract negotiation, club placement and transfers, career strategy, market access, and scouting.",
+    "MWD Soccer's services: college and academy transition, club placement and transfers, contract negotiation, career strategy, ongoing player management, and international market access.",
 };
 
 export default function ServicesPage() {
@@ -15,8 +15,13 @@ export default function ServicesPage() {
         <Container>
           <SectionLabel>Services</SectionLabel>
           <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
-            Practical work, grounded in what actually moves a career forward.
+            Representation for every stage of a professional career.
           </h1>
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/75">
+            From the transition out of college or academy soccer to
+            contracts, transfers and the decisions that follow, MWD manages
+            the work behind a player&apos;s next move.
+          </p>
         </Container>
       </section>
 
@@ -38,10 +43,15 @@ export default function ServicesPage() {
       <section className="border-t hairline-dark py-20">
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
-            <h2 className="max-w-lg font-display text-3xl text-paper">
-              Reach out to talk through a specific situation.
-            </h2>
-            <PrimaryLink href="/contact">Contact MWD</PrimaryLink>
+            <div>
+              <h2 className="max-w-lg font-display text-3xl text-paper">
+                Considering representation or your next professional move?
+              </h2>
+              <p className="mt-3 max-w-md text-[15px] text-paper/70">
+                Speak directly with Mike about your situation.
+              </p>
+            </div>
+            <PrimaryLink href="/contact">Start a Conversation</PrimaryLink>
           </div>
         </Container>
       </section>

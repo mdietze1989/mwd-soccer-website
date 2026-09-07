@@ -6,21 +6,21 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact MWD Soccer — for players and families, clubs and sporting directors, or agents and international partners.",
+    "Talk to Mike Dietze at MWD Soccer — for players and families, clubs and sporting directors, or agents and international partners.",
 };
 
-const pathways = [
+const audiences = [
   {
-    title: "Players & families",
-    detail: "Considering representation, or want to talk through your situation.",
+    title: "Players & Families",
+    detail: "Representation, professional opportunities or a current career decision.",
   },
   {
-    title: "Clubs & sporting directors",
-    detail: "Looking into a player, a trial, or a specific transfer window.",
+    title: "Clubs & Sporting Directors",
+    detail: "Player availability, trials and transfer-window opportunities.",
   },
   {
-    title: "Agents & international partners",
-    detail: "Co-agent work, authorizations, or collaboration across markets.",
+    title: "Agents & International Partners",
+    detail: "Co-agent work, mandates and cross-border collaboration.",
   },
 ];
 
@@ -32,28 +32,35 @@ export default function ContactPage() {
           <div>
             <SectionLabel>Contact</SectionLabel>
             <h1 className="mt-3 font-display text-4xl text-paper md:text-5xl">
-              Get in touch.
+              Let&apos;s talk about your next move.
             </h1>
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/80">
+              Players and families can speak directly with Mike about
+              representation, professional pathways and the transition into
+              the professional game.
+            </p>
 
             <div className="mt-10 space-y-8 border-t hairline-dark pt-8">
-              {pathways.map((p) => (
-                <div key={p.title}>
-                  <h2 className="font-display text-lg text-paper">{p.title}</h2>
-                  <p className="mt-1 text-sm text-muted-dark">{p.detail}</p>
+              {audiences.map((a) => (
+                <div key={a.title}>
+                  <h2 className="font-display text-lg text-paper">{a.title}</h2>
+                  <p className="mt-1 text-sm text-muted-dark">{a.detail}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 space-y-2 border-t hairline-dark pt-8 text-sm">
-              <p>
-                <a href={`mailto:${siteConfig.emails.primary}`} className="text-accent hover:underline">
-                  {siteConfig.emails.primary}
-                </a>
-              </p>
+            <div className="mt-10 space-y-3 border-t hairline-dark pt-8 text-sm">
               <p>
                 <a href={`mailto:${siteConfig.emails.founder}`} className="text-accent hover:underline">
                   {siteConfig.emails.founder}
                 </a>
+                <span className="ml-2 text-muted-dark">— direct / player and family inquiries</span>
+              </p>
+              <p>
+                <a href={`mailto:${siteConfig.emails.primary}`} className="text-accent hover:underline">
+                  {siteConfig.emails.primary}
+                </a>
+                <span className="ml-2 text-muted-dark">— player profiles and scouting submissions</span>
               </p>
               <p className="text-muted-dark">{siteConfig.phone}</p>
               <p className="text-muted-dark">{siteConfig.location}</p>

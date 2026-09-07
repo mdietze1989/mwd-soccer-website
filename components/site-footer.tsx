@@ -29,9 +29,16 @@ export function SiteFooter() {
             <p className="text-sm text-paper">Contact</p>
             <ul className="mt-3 space-y-2 text-sm text-muted-dark">
               <li>
+                <a href={`mailto:${siteConfig.emails.founder}`} className="hover:text-paper">
+                  {siteConfig.emails.founder}
+                </a>
+                <span className="block text-xs text-muted-dark/70">Players &amp; families</span>
+              </li>
+              <li>
                 <a href={`mailto:${siteConfig.emails.primary}`} className="hover:text-paper">
                   {siteConfig.emails.primary}
                 </a>
+                <span className="block text-xs text-muted-dark/70">Scouting submissions</span>
               </li>
               <li>
                 <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`} className="hover:text-paper">

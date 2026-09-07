@@ -16,17 +16,14 @@ export type CareerStep = {
 export type ProfessionalDeal = {
   slug: string;
   player: string;
-  nationality: string;
-  position?: string;
-  club: string;
-  league: string;
-  season: string;
-  summary: string;
+  metaLine: string; // Track Record subtitle, e.g. "USL Championship | 2023–2028"
+  careerLine: string; // Short arrow-chain used on the Home page, e.g. "Loudoun United → New Mexico United"
+  homeSummary: string; // One line used in the Home page outcome card
+  summary: string; // Short summary used on the Track Record page
   role?: string;
   primaryImage: ImageRef;
   secondaryImages?: ImageRef[];
   career?: CareerStep[];
-  current: boolean;
 };
 
 export type ClubOpportunity = {
@@ -44,17 +41,18 @@ export type Authorization = {
   detail: string;
 };
 
+// Player order: Houssou is the strongest career-management case, and Jack is
+// the clearest direct analogue for the elite college audience, so he leads
+// the remaining players.
 export const professionalDeals: ProfessionalDeal[] = [
   {
     slug: "houssou-landry",
     player: "Houssou Landry",
-    nationality: "Ivory Coast",
-    position: "Midfielder",
-    club: "Charleston Battery",
-    league: "USL Championship",
-    season: "2025–2026",
-    summary:
-      "Four contracts across three clubs over more than three years, including renewals and a paid transfer. Landry signed with New Mexico United for the 2024 season, then a two-year agreement with Charleston Battery covering 2025 and 2026, negotiated against three competing USL offers. A two-year term sheet with Athletic Club Boise for the 2027–2028 seasons, ahead of the club's USL Championship entry, followed.",
+    metaLine: "USL Championship | 2023–2028",
+    careerLine: "Loudoun United → New Mexico United → Charleston Battery → Athletic Club Boise",
+    homeSummary:
+      "Four clubs across six professional seasons, including multi-year terms with Charleston and Boise.",
+    summary: "Four clubs across six professional seasons.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/landry/charleston-signing.jpg",
@@ -71,91 +69,92 @@ export const professionalDeals: ProfessionalDeal[] = [
       },
     ],
     career: [
-      { club: "ASI Abengourou", period: "Ivory Coast", note: "Development" },
-      { club: "Loudoun United", league: "USL Championship", period: "2023", note: "First U.S. professional move" },
-      { club: "New Mexico United", league: "USL Championship", period: "2024", note: "Signed for the 2024 season" },
-      { club: "Charleston Battery", league: "USL Championship", period: "2025–2026", note: "Two-year agreement, negotiated against three competing offers" },
-      { club: "Athletic Club Boise", league: "USL Championship", period: "2027–2028", note: "Two-year term sheet ahead of the club's USL Championship entry" },
+      { club: "Loudoun United", league: "USL Championship", period: "2023", note: "First U.S. professional contract" },
+      { club: "New Mexico United", league: "USL Championship", period: "2024", note: "Transfer completed for the 2024 season" },
+      { club: "Charleston Battery", league: "USL Championship", period: "2025–2026", note: "Two-year agreement selected from three competing USL Championship offers" },
+      { club: "Athletic Club Boise", league: "USL Championship", period: "2027–2028", note: "Two-year term sheet ahead of the club's USL Championship launch" },
     ],
-    current: true,
+  },
+  {
+    slug: "jack-singer",
+    player: "Jack Singer",
+    metaLine: "University of Virginia → Las Vegas Lights FC | 2025",
+    careerLine: "University of Virginia → Las Vegas Lights FC",
+    homeSummary: "Directly from college into a guaranteed USL Championship contract for the 2025 season.",
+    summary: "Moved directly from college into a guaranteed USL Championship contract for the 2025 season.",
+    role: "Representation & contract negotiation",
+    primaryImage: {
+      src: "/images/players/singer/action.jpg",
+      alt: "Jack Singer in match action for Las Vegas Lights FC",
+    },
+    secondaryImages: [
+      {
+        src: "/images/players/singer/portrait.jpg",
+        alt: "Jack Singer portrait in Las Vegas Lights FC kit",
+      },
+    ],
+    career: [
+      { club: "Las Vegas Lights FC", league: "USL Championship", period: "2025", note: "Guaranteed professional contract" },
+    ],
+  },
+  {
+    slug: "gaoussou-samake",
+    player: "Gaoussou Samake",
+    metaLine: "D.C. United → Las Vegas Lights FC | 2022–2025",
+    careerLine: "D.C. United → Las Vegas Lights FC",
+    homeSummary: "MLS representation followed by a two-year USL Championship agreement.",
+    summary:
+      "Represented by MWD during his MLS career with D.C. United before a two-year USL Championship agreement with Las Vegas Lights covering the 2024 and 2025 seasons.",
+    role: "Representation & contract negotiation",
+    primaryImage: {
+      src: "/images/players/samake/dc-united-action.jpg",
+      alt: "Gaoussou Samake in match action for D.C. United against Philadelphia Union",
+    },
+    secondaryImages: [
+      {
+        src: "/images/players/samake/las-vegas-action.jpg",
+        alt: "Gaoussou Samake in match action for Las Vegas Lights FC",
+      },
+    ],
+    career: [
+      { club: "D.C. United", league: "MLS", period: "2022", note: "Two-year professional contract with options for additional years" },
+      { club: "Las Vegas Lights FC", league: "USL Championship", period: "2024–2025", note: "Two-year USL Championship contract" },
+    ],
   },
   {
     slug: "luka-malesevic",
     player: "Luka Malesevic",
-    nationality: "United States / Montenegro",
-    club: "Monterey Bay FC",
-    league: "USL Championship",
-    season: "2026",
+    metaLine: "Rio Grande Valley FC Toros → Monterey Bay FC | 2022–2026",
+    careerLine: "Rio Grande Valley FC Toros → Monterey Bay FC",
+    homeSummary: "First professional contract in 2022, followed by a move to Monterey Bay FC for 2026.",
     summary:
-      "Professional deal with Rio Grande Valley FC Toros in 2022, followed by a move to Monterey Bay FC in 2026. Dual U.S./Montenegro national.",
+      "First professional contract with Rio Grande Valley FC in 2022, followed by a move to Monterey Bay FC for the 2026 season.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/malesevic/monterey-bay-action.jpg",
       alt: "Luka Malesevic in match action for Monterey Bay FC",
     },
     career: [
-      { club: "Rio Grande Valley FC Toros", league: "USL Championship", period: "2022", note: "Professional debut deal" },
-      { club: "Monterey Bay FC", league: "USL Championship", period: "2026", note: "Current club" },
+      { club: "Rio Grande Valley FC Toros", league: "USL Championship", period: "2022", note: "First professional contract" },
+      { club: "Monterey Bay FC", league: "USL Championship", period: "2026", note: "Professional contract" },
     ],
-    current: true,
-  },
-  {
-    slug: "gaoussou-samake",
-    player: "Gaoussou Samake",
-    nationality: "Mali",
-    club: "Las Vegas Lights FC",
-    league: "USL Championship",
-    season: "2024–2025",
-    summary:
-      "Played in MLS before moving into the USL Championship. Signed a two-year professional contract with Las Vegas Lights covering the 2024 and 2025 seasons.",
-    role: "Representation & contract negotiation",
-    primaryImage: {
-      src: "/images/players/samake/las-vegas-action.jpg",
-      alt: "Gaoussou Samake in match action for Las Vegas Lights FC",
-    },
-    current: true,
-  },
-  {
-    slug: "jack-singer",
-    player: "Jack Singer",
-    nationality: "United States",
-    club: "Las Vegas Lights FC",
-    league: "USL Championship",
-    season: "2025",
-    summary:
-      "Moved directly from the University of Virginia into a guaranteed professional contract with Las Vegas Lights for the 2025 season.",
-    role: "Representation & contract negotiation",
-    primaryImage: {
-      src: "/images/players/singer/portrait.jpg",
-      alt: "Jack Singer portrait in Las Vegas Lights FC kit",
-    },
-    secondaryImages: [
-      {
-        src: "/images/players/singer/action.jpg",
-        alt: "Jack Singer in match action for Las Vegas Lights FC",
-      },
-    ],
-    career: [
-      { club: "University of Virginia", period: "College", note: "NCAA Division I" },
-      { club: "Las Vegas Lights FC", league: "USL Championship", period: "2025", note: "Guaranteed professional contract" },
-    ],
-    current: true,
   },
   {
     slug: "abdoul-zanne",
     player: "Abdoul Zanne",
-    nationality: "Ivory Coast",
-    club: "North Texas SC",
-    league: "MLS NEXT Pro",
-    season: "2024",
+    metaLine: "ASEC Mimosas → North Texas SC | 2024",
+    careerLine: "ASEC Mimosas → North Texas SC",
+    homeSummary: "A 2024 loan move to North Texas SC in MLS NEXT Pro.",
     summary:
-      "Moved on loan from ASEC Mimosas to North Texas SC — FC Dallas's second team — for the 2024 season. Also generated written offers from New England Revolution II and Rhode Island FC.",
+      "Completed a 2024 loan move to North Texas SC in MLS NEXT Pro. Written offers were also received from New England Revolution II and Rhode Island FC.",
     role: "Representation & club placement",
     primaryImage: {
       src: "/images/players/zanne/north-texas-sc.jpg",
       alt: "Abdoul Zanne portrait in North Texas SC kit",
     },
-    current: true,
+    career: [
+      { club: "North Texas SC", league: "MLS NEXT Pro", period: "2024", note: "Loan move from ASEC Mimosas" },
+    ],
   },
 ];
 
@@ -178,10 +177,12 @@ export const clubOpportunities: ClubOpportunity[] = [
   },
 ];
 
-export const globalClubAccess = {
-  title: "TransferRoom",
+// TransferRoom is a professional credential/tool, not a player outcome — shown
+// as a compact module on the About or International Network page.
+export const transferRoomCredential = {
+  title: "TransferRoom Access",
   description:
-    "Active agent access to TransferRoom, providing visibility into live club requirements and direct contact with club decision-makers across the global transfer market. This extends MWD Soccer's reach beyond a traditional personal network and supports identifying international opportunities as they open.",
+    "Active agent access to live club requirements and direct communication with decision-makers across international markets.",
 };
 
 export const authorizations: Authorization[] = [

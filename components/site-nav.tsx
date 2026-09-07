@@ -11,7 +11,6 @@ const links = [
   { href: "/track-record", label: "Track Record" },
   { href: "/services", label: "Services" },
   { href: "/international-network", label: "International Network" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteNav() {
@@ -53,7 +52,7 @@ export function SiteNav() {
             href="/contact"
             className="rounded-sm border border-accent px-4 py-2 text-sm text-accent transition-colors hover:bg-accent hover:text-ink"
           >
-            Contact MWD
+            Talk to Mike
           </Link>
         </nav>
 
@@ -79,17 +78,32 @@ export function SiteNav() {
       {open && (
         <nav className="border-t hairline-dark px-6 py-4 md:hidden">
           <ul className="flex flex-col gap-4">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block text-base text-paper"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const active =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block text-base ${active ? "text-paper" : "text-muted-dark"}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="pt-2">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-sm border border-accent px-4 py-2 text-sm text-accent"
+                onClick={() => setOpen(false)}
+              >
+                Talk to Mike
+              </Link>
+            </li>
           </ul>
         </nav>
       )}

@@ -1,12 +1,18 @@
 import Image from "next/image";
 import { Container, PrimaryLink, SecondaryLink, SectionLabel, TextLink } from "@/components/ui";
-import { siteConfig } from "@/lib/site-config";
 import { professionalDeals, authorizations } from "@/lib/content/track-record";
-import { coreTeam } from "@/lib/content/people";
+import { coreTeam, internationalPartners } from "@/lib/content/people";
 
 const featured = professionalDeals.filter((d) =>
-  ["houssou-landry", "luka-malesevic", "gaoussou-samake", "jack-singer"].includes(d.slug)
+  ["houssou-landry", "jack-singer", "gaoussou-samake"].includes(d.slug)
 );
+
+const credibilityStrip = [
+  "FIFA-Licensed Agent",
+  "Former Professional & NCAA Division I Player",
+  "MLS, USL Championship & MLS NEXT Pro Experience",
+  "U.S. & International Club Network",
+];
 
 export default function HomePage() {
   const mike = coreTeam[0];
@@ -32,93 +38,86 @@ export default function HomePage() {
         <Container className="relative z-10 pb-16 pt-32 md:pb-24">
           <div className="max-w-2xl">
             <p className="rise-in rise-in-1 font-display text-sm tracking-wide text-accent">
-              {siteConfig.founder.title}
+              FIFA-Licensed Player Representation
             </p>
             <h1 className="rise-in rise-in-2 mt-4 font-display text-5xl leading-[1.05] text-paper md:text-6xl">
-              {siteConfig.brandName}
+              From college and academy soccer to the professional game.
             </h1>
             <p className="rise-in rise-in-3 mt-6 max-w-lg text-lg text-paper/90">
-              {siteConfig.tagline}
+              MWD Soccer represents ambitious players through club placement,
+              contract negotiation and every move that follows — across the
+              United States and internationally.
             </p>
             <div className="rise-in rise-in-4 mt-9 flex flex-wrap gap-4">
-              <PrimaryLink href="/track-record">View Track Record</PrimaryLink>
-              <SecondaryLink href="/contact">Contact MWD</SecondaryLink>
+              <PrimaryLink href="/track-record">View Player Outcomes</PrimaryLink>
+              <SecondaryLink href="/contact">Talk to Mike</SecondaryLink>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Selected outcomes */}
+      {/* Credibility strip */}
+      <section className="border-b hairline-dark py-10">
+        <Container>
+          <div className="grid grid-cols-2 gap-px overflow-hidden border hairline-dark bg-ink-2 md:grid-cols-4">
+            {credibilityStrip.map((item) => (
+              <div key={item} className="bg-ink px-5 py-6 text-center">
+                <p className="text-sm text-paper/90">{item}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Selected player outcomes */}
       <section className="border-b hairline-dark py-24">
         <Container>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <SectionLabel>Selected outcomes</SectionLabel>
+              <SectionLabel>Selected Player Outcomes</SectionLabel>
               <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
-                Real players, real clubs, real seasons.
+                Professional careers are built move by move.
               </h2>
+              <p className="mt-3 max-w-lg text-[15px] text-paper/70">
+                A selection of contracts, transfers and professional
+                opportunities completed for MWD players.
+              </p>
             </div>
-            <TextLink href="/track-record">See the full track record</TextLink>
+            <TextLink href="/track-record">Full Track Record</TextLink>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
-            {featured.map((deal, i) => (
-              <article
+          <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-3">
+            {featured.map((deal) => (
+              <a
                 key={deal.slug}
-                className={`flex flex-col gap-5 ${i % 2 === 1 ? "md:mt-16" : ""}`}
+                href="/track-record"
+                className="group flex flex-col gap-5"
               >
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
                   <Image
                     src={deal.primaryImage.src}
                     alt={deal.primaryImage.alt}
                     fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 46vw, 92vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(min-width: 768px) 30vw, 92vw"
                   />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-dark">
-                    {deal.club} &middot; {deal.league}
-                  </p>
-                  <h3 className="mt-1 font-display text-2xl text-paper">
+                  <h3 className="font-display text-2xl text-paper">
                     {deal.player}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-dark">{deal.season}</p>
-                  <p className="mt-3 max-w-md text-[15px] leading-relaxed text-paper/80">
-                    {deal.summary}
+                  <p className="mt-2 text-sm text-accent">{deal.careerLine}</p>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-paper/75">
+                    {deal.homeSummary}
                   </p>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* International assignments */}
-      <section className="border-b hairline-dark bg-ink-2 py-24">
-        <Container>
-          <SectionLabel>International assignments</SectionLabel>
-          <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
-            Authorized to work specific opportunities for players at the highest level.
-          </h2>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden border hairline-dark bg-ink md:grid-cols-3">
-            {authorizations.map((a) => (
-              <div key={a.slug} className="bg-ink-2 p-8">
-                <p className="text-sm text-accent">{a.scope}</p>
-                <h3 className="mt-2 font-display text-xl text-paper">{a.player}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-dark">
-                  {a.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8">
-            <TextLink href="/track-record">Full authorizations &amp; assignments</TextLink>
-          </div>
-        </Container>
-      </section>
-
-      {/* Founder introduction */}
+      {/* Founder and representation model */}
       <section className="border-b hairline-dark py-24">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,320px)_1fr] md:items-center">
@@ -132,68 +131,106 @@ export default function HomePage() {
               />
             </div>
             <div>
-              <SectionLabel>Founder</SectionLabel>
+              <SectionLabel>Founder &amp; FIFA-Licensed Agent</SectionLabel>
               <h2 className="mt-3 font-display text-3xl text-paper md:text-4xl">
                 {mike.name}
               </h2>
-              <p className="mt-2 text-muted-dark">{siteConfig.fifa.licenseLabel}</p>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/80">
-                Mike Dietze is a FIFA-licensed football agent and the founder of
-                MWD Soccer, representing players directly through contract
-                negotiation, club placement and international collaboration.
+                Mike personally leads every MWD player relationship — from the
+                first evaluation and club conversation through negotiation,
+                relocation, contract decisions and the next move.
               </p>
               <div className="mt-6">
-                <TextLink href="/about">More about Mike</TextLink>
+                <TextLink href="/about">Meet Mike</TextLink>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* International network */}
-      <section className="border-b hairline-dark bg-ink-2 py-24">
+      {/* International assignments */}
+      <section className="border-b hairline-dark bg-ink-2 py-20">
         <Container>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            <div>
-              <SectionLabel>International network</SectionLabel>
-              <h2 className="mt-3 font-display text-3xl text-paper md:text-4xl">
-                A working network across West Africa, Europe and North America.
-              </h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/80">
-                MWD Soccer collaborates with FIFA-licensed agents in Senegal
-                and Italy, alongside club executives, sporting directors,
-                coaches and scouts across the United States and abroad —
-                each with a defined role in the players and assignments they
-                work on together.
-              </p>
-              <div className="mt-6">
-                <TextLink href="/international-network">Meet the network</TextLink>
+          <SectionLabel>International Assignments</SectionLabel>
+          <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
+            Trusted with specific opportunities across international markets.
+          </h2>
+          <p className="mt-3 max-w-lg text-[15px] text-paper/70">
+            MWD has received club- and player-side authorization to pursue
+            defined opportunities involving MLS and international clubs.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden border hairline-dark bg-ink md:grid-cols-3">
+            {authorizations.map((a) => (
+              <div key={a.slug} className="bg-ink-2 p-8">
+                <p className="text-sm text-accent">{a.scope}</p>
+                <h3 className="mt-2 font-display text-xl text-paper">{a.player}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-dark">
+                  {a.detail}
+                </p>
               </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4 self-start">
-              <div className="border hairline-dark p-6">
-                <p className="font-display text-xl text-paper">Senegal</p>
-                <p className="mt-2 text-sm text-muted-dark">West Africa partner market</p>
-              </div>
-              <div className="border hairline-dark p-6">
-                <p className="font-display text-xl text-paper">Italy</p>
-                <p className="mt-2 text-sm text-muted-dark">European partner market</p>
-              </div>
-            </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <TextLink href="/track-record#authorizations">Full track record</TextLink>
           </div>
         </Container>
       </section>
 
-      {/* Contact CTA */}
+      {/* International network preview */}
+      <section className="border-b hairline-dark py-24">
+        <Container>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <SectionLabel>International Network</SectionLabel>
+              <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
+                Local accountability. International reach.
+              </h2>
+              <p className="mt-3 max-w-lg text-[15px] text-paper/70">
+                MWD players work directly with Mike Dietze, supported by
+                FIFA-licensed partners in West Africa and Europe and
+                relationships with club decision-makers throughout the United
+                States.
+              </p>
+            </div>
+            <TextLink href="/international-network">Meet the Network</TextLink>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+            {internationalPartners.map((person) => (
+              <div key={person.slug} className="flex gap-5 border hairline-dark p-6">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink-2">
+                  <Image
+                    src={person.image!}
+                    alt={person.imageAlt ?? person.name}
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg text-paper">{person.name}</h3>
+                  <p className="mt-1 text-sm text-accent">{person.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Final CTA */}
       <section className="py-24">
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="max-w-lg font-display text-3xl text-paper md:text-4xl">
-                Players, clubs and agents can reach MWD Soccer directly.
+                Ready to discuss your next move?
               </h2>
+              <p className="mt-3 max-w-md text-[15px] text-paper/70">
+                Players and families can speak directly with Mike about
+                representation, professional pathways and the decisions ahead.
+              </p>
             </div>
-            <PrimaryLink href="/contact">Contact MWD</PrimaryLink>
+            <PrimaryLink href="/contact">Start a Conversation</PrimaryLink>
           </div>
         </Container>
       </section>

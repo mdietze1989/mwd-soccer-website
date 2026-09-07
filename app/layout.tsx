@@ -11,24 +11,29 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/lib/site-config";
 
+const homeTitle = `${siteConfig.brandName} | FIFA-Licensed Player Representation`;
+const homeDescription =
+  "MWD Soccer represents college, academy and professional players through club placement, contract negotiation and career management across U.S. and international markets.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${siteConfig.brandName} — Football Representation`,
+    default: homeTitle,
     template: `%s — ${siteConfig.brandName}`,
   },
-  description: siteConfig.tagline,
+  description: homeDescription,
   openGraph: {
-    title: `${siteConfig.brandName} — Football Representation`,
-    description: siteConfig.tagline,
+    title: homeTitle,
+    description: homeDescription,
     url: siteConfig.siteUrl,
     siteName: siteConfig.brandName,
     type: "website",
+    images: [{ url: "/images/players/landry/charleston-action.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.brandName} — Football Representation`,
-    description: siteConfig.tagline,
+    title: homeTitle,
+    description: homeDescription,
   },
   icons: {
     icon: "/favicon.ico",

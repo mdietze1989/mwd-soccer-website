@@ -10,7 +10,8 @@
 export const siteConfig = {
   // Public brand
   brandName: "MWD Soccer",
-  tagline: "Football representation built on direct relationships and documented outcomes.",
+  tagline:
+    "FIFA-licensed player representation, contract negotiation and club placement. Based in Hoboken, New Jersey, working across U.S. and international markets.",
 
   // Legal entity (shown discreetly in the footer)
   legalName: "MWD Soccer Agency LLC",
@@ -36,13 +37,12 @@ export const siteConfig = {
   // Founder
   founder: {
     name: "Mike Dietze",
-    title: "Founder & FIFA-Licensed Football Agent",
+    title: "Founder & FIFA-Licensed Agent",
   },
 
   // FIFA license
   fifa: {
-    licenseNumber: "202304-869",
-    licenseLabel: "FIFA Agent ID 202304-869",
+    licenseLabel: "FIFA-Licensed Agent",
   },
 
   // Logo paths (swap when a mark is available; text wordmark is used until then)

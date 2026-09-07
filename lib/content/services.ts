@@ -6,39 +6,39 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "player-representation",
-    title: "Player Representation",
+    slug: "college-academy-to-pro",
+    title: "College & Academy to Pro",
     description:
-      "Direct representation for professional and aspiring professional players, from first conversation through contract signing.",
-  },
-  {
-    slug: "contract-negotiation",
-    title: "Contract Negotiation",
-    description:
-      "Negotiating terms, renewals and extensions directly with clubs — including against competing offers from multiple teams.",
+      "Evaluating realistic professional pathways, preparing player materials and approaching appropriate clubs across MLS, MLS NEXT Pro and USL.",
   },
   {
     slug: "club-placement-transfers",
     title: "Club Placement & Transfers",
     description:
-      "Identifying and securing moves between clubs and leagues, including loans, transfers and trial-to-contract pathways.",
+      "Targeted club outreach for first contracts, loans, transfers, trials and the next move when a player has outgrown his current situation.",
+  },
+  {
+    slug: "contract-negotiation",
+    title: "Contract Negotiation",
+    description:
+      "Negotiating salary, term, options, bonuses and other protections directly with clubs.",
   },
   {
     slug: "career-strategy",
     title: "Career Strategy",
     description:
-      "Planning next steps around season timing, league level and club fit, based on where a player's opportunities actually are.",
+      "Evaluating opportunities based on playing time, sporting fit, contract structure and what each move can create next.",
+  },
+  {
+    slug: "ongoing-player-management",
+    title: "Ongoing Player Management",
+    description:
+      "Supporting players through club issues, contract decisions, relocation and the situations that arise during a professional season.",
   },
   {
     slug: "market-access",
     title: "Domestic & International Market Access",
     description:
-      "Direct relationships with club executives, sporting directors, coaches and licensed agents across the United States, West Africa and Europe.",
-  },
-  {
-    slug: "scouting-identification",
-    title: "Scouting & Player Identification",
-    description:
-      "Evaluating and tracking players through a network of scouts and collaborators, and matching them to realistic club opportunities.",
+      "Club relationships and licensed-agent collaboration across the United States, West Africa and Europe, supported by active TransferRoom access.",
   },
 ];
