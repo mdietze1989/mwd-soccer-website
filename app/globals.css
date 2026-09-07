@@ -66,8 +66,15 @@ body {
   color: var(--color-ink);
 }
 
-a {
-  color: inherit;
+/* Layered (not global) so Tailwind text-color utilities on <a> elements —
+   e.g. TextLink's accent/ivory-ink tone — can actually win. An unlayered rule
+   here would outrank every utility class regardless of specificity, which is
+   what was silently making TextLink always render inherited body/paper text
+   instead of its own color. */
+@layer base {
+  a {
+    color: inherit;
+  }
 }
 
 .font-display {

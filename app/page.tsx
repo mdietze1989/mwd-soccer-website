@@ -49,7 +49,7 @@ export default function HomePage() {
               United States and internationally.
             </p>
             <div className="rise-in rise-in-4 mt-9 flex flex-wrap gap-4">
-              <PrimaryLink href="/track-record">View Player Outcomes</PrimaryLink>
+              <PrimaryLink href="/track-record" tone="bright">View Player Outcomes</PrimaryLink>
               <SecondaryLink href="/contact">Talk to Mike</SecondaryLink>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function HomePage() {
                 opportunities completed for MWD players.
               </p>
             </div>
-            <TextLink href="/track-record">Full Track Record</TextLink>
+            <TextLink href="/track-record" tone="ink">Full Track Record</TextLink>
           </div>
 
           <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-3">
@@ -122,12 +122,12 @@ export default function HomePage() {
       <section className="border-b hairline-dark py-12 md:py-16">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,320px)_1fr] md:items-center">
-            <div className="relative aspect-[3/5] w-full max-w-sm overflow-hidden bg-ink-2">
+            <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden bg-ink-2">
               <Image
                 src={mike.image!}
                 alt={mike.imageAlt!}
                 fill
-                className="object-cover object-top"
+                className="object-cover"
                 sizes="(min-width: 768px) 320px, 80vw"
               />
             </div>

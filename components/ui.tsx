@@ -24,14 +24,23 @@ export function SectionLabel({ children }: { children: ReactNode }) {
 export function PrimaryLink({
   href,
   children,
+  tone = "default",
 }: {
   href: string;
   children: ReactNode;
+  /** "bright" is a richer, higher-contrast gold reserved for the hero CTA,
+   *  which sits over a photo + dark gradient rather than a flat surface.
+   *  Default stays the standard accent gold used everywhere else. */
+  tone?: "default" | "bright";
 }) {
+  const toneClass =
+    tone === "bright"
+      ? "bg-[#e0a83e] hover:bg-accent"
+      : "bg-accent hover:bg-accent-soft";
   return (
     <Link
       href={href}
-      className="inline-flex items-center justify-center rounded-sm bg-accent px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-accent-soft"
+      className={`inline-flex items-center justify-center rounded-sm px-6 py-3 text-sm font-medium text-ink transition-colors ${toneClass}`}
     >
       {children}
     </Link>
@@ -58,14 +67,23 @@ export function SecondaryLink({
 export function TextLink({
   href,
   children,
+  tone = "accent",
 }: {
   href: string;
   children: ReactNode;
+  /** "ink" reads as dark charcoal — use on the warm-ivory sections, where gold
+   *  accent text falls below accessible contrast. Default "accent" (gold) is
+   *  for the dark sections, unchanged. */
+  tone?: "accent" | "ink";
 }) {
+  const toneClass =
+    tone === "ink"
+      ? "text-ivory-ink underline decoration-ivory-ink/40 hover:decoration-ivory-ink visited:text-ivory-ink"
+      : "text-accent underline decoration-accent/40 hover:decoration-accent visited:text-accent";
   return (
     <Link
       href={href}
-      className="text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent"
+      className={`text-sm underline-offset-4 transition-colors ${toneClass}`}
     >
       {children}
     </Link>

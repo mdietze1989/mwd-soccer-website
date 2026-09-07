@@ -35,21 +35,21 @@ export default function InternationalNetworkPage() {
       </section>
 
       {/* Mike's international presence — documentary, not a claimed club mandate */}
-      <section className="border-b hairline-dark py-14 md:py-18">
+      <section className="border-b hairline-dark py-10 md:py-14">
         <Container>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,320px)_1fr] md:items-center">
-            <div className="relative aspect-[7/8] w-full max-w-sm overflow-hidden bg-ink-2">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[48%_1fr] md:gap-12 md:items-center">
+            <div className="relative aspect-[7/8] w-full overflow-hidden bg-ink-2">
               <Image
                 src="/images/network/wydad-morocco.jpg"
                 alt="Mike Dietze with Wydad Athletic Club's sporting director during the 2025 U-17 Africa Cup of Nations in Morocco"
                 fill
                 className="object-cover"
-                sizes="(min-width: 768px) 320px, 90vw"
+                sizes="(min-width: 768px) 48vw, 90vw"
               />
             </div>
-            <div>
+            <div className="max-w-sm">
               <SectionLabel>On the Ground</SectionLabel>
-              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-paper/88">
+              <p className="mt-3 text-[15px] leading-relaxed text-paper/88">
                 Mike Dietze with Wydad Athletic Club&apos;s sporting director
                 during the 2025 U-17 Africa Cup of Nations in Morocco.
               </p>

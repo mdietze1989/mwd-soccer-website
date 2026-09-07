@@ -24,16 +24,15 @@ export default function AboutPage() {
       <section className="border-b hairline-dark py-14 md:py-18">
         <Container>
           <div className="grid grid-cols-1 gap-14 md:grid-cols-[minmax(0,360px)_1fr]">
-            {/* mike.image is a tall waist-up portrait (~0.49 aspect) — the container
-                aspect is set close to that so cover only trims a sliver off the
-                bottom (object-top), instead of cropping into his head. */}
-            <div className="relative aspect-[3/5] w-full overflow-hidden bg-ink-2">
+            {/* mike.image is a ~3/4-aspect head-to-hip portrait — the container
+                matches that aspect closely so cover crops next to nothing. */}
+            <div className="relative aspect-[3/4] w-full overflow-hidden bg-ink-2">
               <Image
                 src={mike.image!}
                 alt={mike.imageAlt!}
                 fill
                 priority
-                className="object-cover object-top"
+                className="object-cover"
                 sizes="(min-width: 768px) 360px, 90vw"
               />
             </div>
