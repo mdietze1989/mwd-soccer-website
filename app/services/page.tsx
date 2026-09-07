@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="border-b hairline-dark py-20">
+      <section className="border-b hairline-dark py-12 md:py-16">
         <Container>
           <SectionLabel>Services</SectionLabel>
           <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
@@ -25,13 +25,13 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="bg-ivory py-14 md:py-18">
         <Container>
-          <div className="grid grid-cols-1 border-t hairline-dark md:grid-cols-2">
+          <div className="grid grid-cols-1 border-t hairline-ivory md:grid-cols-2">
             {services.map((service) => (
-              <div key={service.slug} className="border-b hairline-dark p-8 md:border-r md:p-10 md:[&:nth-child(2n)]:border-r-0">
-                <h2 className="font-display text-2xl text-paper">{service.title}</h2>
-                <p className="mt-3 max-w-md text-[15px] leading-relaxed text-paper/88">
+              <div key={service.slug} className="border-b hairline-ivory p-8 md:border-r md:p-10 md:[&:nth-child(2n)]:border-r-0">
+                <h2 className="font-display text-2xl text-ivory-ink">{service.title}</h2>
+                <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ivory-ink/80">
                   {service.description}
                 </p>
               </div>
@@ -40,7 +40,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="border-t hairline-dark py-20">
+      <section className="border-t hairline-dark py-12 md:py-16">
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
             <div>

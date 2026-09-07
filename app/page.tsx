@@ -32,12 +32,12 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(12,15,14,0.35) 0%, rgba(12,15,14,0.55) 55%, rgba(12,15,14,0.95) 100%)",
+              "linear-gradient(180deg, rgba(12,15,14,0.45) 0%, rgba(12,15,14,0.62) 45%, rgba(12,15,14,0.95) 100%)",
           }}
         />
         <Container className="relative z-10 pb-16 pt-32 md:pb-24">
           <div className="max-w-2xl">
-            <p className="rise-in rise-in-1 font-display text-sm tracking-wide text-accent">
+            <p className="rise-in rise-in-1 font-display text-sm tracking-wide text-paper">
               FIFA-Licensed Player Representation
             </p>
             <h1 className="rise-in rise-in-2 mt-4 font-display text-5xl leading-[1.05] text-paper md:text-6xl">
@@ -70,15 +70,15 @@ export default function HomePage() {
       </section>
 
       {/* Selected player outcomes */}
-      <section className="border-b hairline-dark py-24">
+      <section className="border-b hairline-ivory bg-ivory py-14 md:py-18">
         <Container>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <SectionLabel>Selected Player Outcomes</SectionLabel>
-              <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
+              <h2 className="mt-3 max-w-xl font-display text-3xl text-ivory-ink md:text-4xl">
                 Professional careers are built move by move.
               </h2>
-              <p className="mt-3 max-w-lg text-[15px] text-paper/80">
+              <p className="mt-3 max-w-lg text-[15px] text-ivory-ink/75">
                 A selection of contracts, transfers and professional
                 opportunities completed for MWD players.
               </p>
@@ -93,21 +93,22 @@ export default function HomePage() {
                 href="/track-record"
                 className="group flex flex-col gap-5"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-2">
                   <Image
                     src={deal.primaryImage.src}
                     alt={deal.primaryImage.alt}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className={`transition-transform duration-500 group-hover:scale-[1.03] ${deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}`}
+                    style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
                     sizes="(min-width: 768px) 30vw, 92vw"
                   />
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl text-paper">
+                  <h3 className="font-display text-2xl text-ivory-ink">
                     {deal.player}
                   </h3>
                   <p className="mt-2 text-sm text-accent">{deal.careerLine}</p>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-paper/85">
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-ivory-ink/75">
                     {deal.homeSummary}
                   </p>
                 </div>
@@ -118,15 +119,15 @@ export default function HomePage() {
       </section>
 
       {/* Founder and representation model */}
-      <section className="border-b hairline-dark py-24">
+      <section className="border-b hairline-dark py-12 md:py-16">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,320px)_1fr] md:items-center">
-            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden bg-ink-2">
+            <div className="relative aspect-[3/5] w-full max-w-sm overflow-hidden bg-ink-2">
               <Image
                 src={mike.image!}
                 alt={mike.imageAlt!}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(min-width: 768px) 320px, 80vw"
               />
             </div>
@@ -149,7 +150,7 @@ export default function HomePage() {
       </section>
 
       {/* International assignments */}
-      <section className="border-b hairline-dark bg-ink-2 py-20">
+      <section className="border-b hairline-dark bg-ink-2 py-14 md:py-18">
         <Container>
           <SectionLabel>International Assignments</SectionLabel>
           <h2 className="mt-3 max-w-xl font-display text-3xl text-paper md:text-4xl">
@@ -177,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* International network preview */}
-      <section className="border-b hairline-dark py-24">
+      <section className="border-b hairline-dark py-12 md:py-16">
         <Container>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -219,7 +220,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24">
+      <section className="py-12 md:py-16">
         <Container>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
             <div>

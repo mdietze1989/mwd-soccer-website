@@ -97,23 +97,39 @@ export default function TrackRecordPage() {
                     src={landry.primaryImage.src}
                     alt={landry.primaryImage.alt}
                     fill
-                    className="object-cover"
+                    className={landry.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
                     sizes="(min-width: 768px) 340px, 90vw"
                   />
                 </div>
+                {/* Loudoun + New Mexico as portrait thumbnails (their source photos are
+                    tall action shots); Charleston action stays landscape below — each
+                    keeps its native shape instead of forcing one destructive crop. */}
                 {landry.secondaryImages && landry.secondaryImages.length > 0 && (
                   <div className="mt-4 grid grid-cols-2 gap-4">
-                    {landry.secondaryImages.map((img) => (
-                      <div key={img.src} className="relative aspect-[4/3] overflow-hidden bg-ink-2">
+                    {landry.secondaryImages.slice(0, 2).map((img) => (
+                      <div key={img.src} className="relative aspect-[3/4] overflow-hidden bg-ink-2">
                         <Image
                           src={img.src}
                           alt={img.alt}
                           fill
-                          className="object-cover"
+                          className={img.fit === "contain" ? "object-contain" : "object-cover"}
+                          style={img.position ? { objectPosition: img.position } : undefined}
                           sizes="(min-width: 768px) 170px, 45vw"
                         />
                       </div>
                     ))}
+                  </div>
+                )}
+                {landry.secondaryImages && landry.secondaryImages.length > 2 && (
+                  <div className="mt-4 relative aspect-[4/3] overflow-hidden bg-ink-2">
+                    <Image
+                      src={landry.secondaryImages[2].src}
+                      alt={landry.secondaryImages[2].alt}
+                      fill
+                      className={landry.secondaryImages[2].fit === "contain" ? "object-contain" : "object-cover"}
+                      style={landry.secondaryImages[2].position ? { objectPosition: landry.secondaryImages[2].position } : undefined}
+                      sizes="(min-width: 768px) 340px, 90vw"
+                    />
                   </div>
                 )}
               </div>
@@ -143,7 +159,8 @@ export default function TrackRecordPage() {
                       src={deal.primaryImage.src}
                       alt={deal.primaryImage.alt}
                       fill
-                      className="object-cover"
+                      className={deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
+                      style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
                       sizes="220px"
                     />
                   </div>
@@ -158,7 +175,8 @@ export default function TrackRecordPage() {
                             src={img.src}
                             alt={img.alt}
                             fill
-                            className="object-cover"
+                            className={img.fit === "contain" ? "object-contain" : "object-cover"}
+                            style={img.position ? { objectPosition: img.position } : undefined}
                             sizes="220px"
                           />
                         </div>

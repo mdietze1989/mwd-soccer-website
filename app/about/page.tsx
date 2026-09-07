@@ -21,18 +21,19 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="border-b hairline-dark py-24">
+      <section className="border-b hairline-dark py-14 md:py-18">
         <Container>
           <div className="grid grid-cols-1 gap-14 md:grid-cols-[minmax(0,360px)_1fr]">
-            {/* Fixed aspect ratio + fill/object-cover: a higher-resolution replacement can drop in
-                via mike.image with no layout change. Current crop/dimensions preserved for now. */}
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
+            {/* mike.image is a tall waist-up portrait (~0.49 aspect) — the container
+                aspect is set close to that so cover only trims a sliver off the
+                bottom (object-top), instead of cropping into his head. */}
+            <div className="relative aspect-[3/5] w-full overflow-hidden bg-ink-2">
               <Image
                 src={mike.image!}
                 alt={mike.imageAlt!}
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(min-width: 768px) 360px, 90vw"
               />
             </div>
@@ -81,10 +82,10 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-24">
+      <section className="hairline-ivory bg-ivory py-12 md:py-16">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink-2 order-2 md:order-1">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-ivory-2 order-2 md:order-1">
               <Image
                 src="/images/team/mike-landry-samake.jpg"
                 alt="Mike Dietze with players Houssou Landry and Gaoussou Samake"
@@ -95,10 +96,10 @@ export default function AboutPage() {
             </div>
             <div className="order-1 md:order-2">
               <SectionLabel>Direct Relationships</SectionLabel>
-              <h2 className="mt-3 font-display text-3xl text-paper">
+              <h2 className="mt-3 font-display text-3xl text-ivory-ink">
                 Representation is personal.
               </h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/88">
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ivory-ink/80">
                 Players work directly with Mike — from the first evaluation
                 and club conversation through negotiation, relocation and the
                 decisions that follow. The objective is not simply to secure a
@@ -110,7 +111,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-t hairline-dark py-24">
+      <section className="border-t hairline-dark py-14 md:py-18">
         <Container>
           <SectionLabel>MWD Team &amp; Advisors</SectionLabel>
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">

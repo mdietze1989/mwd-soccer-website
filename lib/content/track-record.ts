@@ -4,6 +4,11 @@
 export type ImageRef = {
   src: string;
   alt: string;
+  /** CSS object-position (e.g. "62% center") — set when the subject sits off-center. */
+  position?: string;
+  /** "contain" for signing graphics / studio portraits where the full composition
+   *  matters; defaults to "cover" for action photography. */
+  fit?: "cover" | "contain";
 };
 
 export type CareerStep = {
@@ -59,11 +64,17 @@ export const professionalDeals: ProfessionalDeal[] = [
     primaryImage: {
       src: "/images/players/landry/charleston-signing.jpg",
       alt: "Houssou Landry signing announcement graphic for Charleston Battery",
+      fit: "contain",
     },
     secondaryImages: [
       {
+        src: "/images/players/landry/loudoun-action.jpg",
+        alt: "Houssou Landry in match action for Loudoun United",
+      },
+      {
         src: "/images/players/landry/new-mexico-united.jpg",
         alt: "Houssou Landry in action for New Mexico United",
+        position: "center 58%",
       },
       {
         src: "/images/players/landry/charleston-action.jpg",
@@ -88,11 +99,13 @@ export const professionalDeals: ProfessionalDeal[] = [
     primaryImage: {
       src: "/images/players/singer/action.jpg",
       alt: "Jack Singer in match action for Las Vegas Lights FC",
+      position: "30% center",
     },
     secondaryImages: [
       {
         src: "/images/players/singer/portrait.jpg",
         alt: "Jack Singer portrait in Las Vegas Lights FC kit",
+        fit: "contain",
       },
     ],
     career: [
@@ -111,6 +124,7 @@ export const professionalDeals: ProfessionalDeal[] = [
     primaryImage: {
       src: "/images/players/samake/dc-united-action.jpg",
       alt: "Gaoussou Samake in match action for D.C. United against Philadelphia Union",
+      position: "65% center",
     },
     secondaryImages: [
       {
@@ -153,6 +167,7 @@ export const professionalDeals: ProfessionalDeal[] = [
     primaryImage: {
       src: "/images/players/zanne/north-texas-sc.jpg",
       alt: "Abdoul Zanne portrait in North Texas SC kit",
+      fit: "contain",
     },
     career: [
       { club: "North Texas SC", league: "MLS NEXT Pro", period: "2024", note: "Loan move from ASEC Mimosas" },

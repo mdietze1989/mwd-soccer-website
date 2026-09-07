@@ -15,7 +15,7 @@ const locations = ["United States", "Senegal", "Italy"];
 export default function InternationalNetworkPage() {
   return (
     <>
-      <section className="border-b hairline-dark py-20">
+      <section className="border-b hairline-dark py-12 md:py-16">
         <Container>
           <SectionLabel>International Network</SectionLabel>
           <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
@@ -34,14 +34,38 @@ export default function InternationalNetworkPage() {
         </Container>
       </section>
 
-      <section className="border-b hairline-dark py-20">
+      {/* Mike's international presence — documentary, not a claimed club mandate */}
+      <section className="border-b hairline-dark py-14 md:py-18">
         <Container>
-          <h2 className="font-display text-2xl text-paper">International Partners</h2>
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,320px)_1fr] md:items-center">
+            <div className="relative aspect-[7/8] w-full max-w-sm overflow-hidden bg-ink-2">
+              <Image
+                src="/images/network/wydad-morocco.jpg"
+                alt="Mike Dietze with Wydad Athletic Club's sporting director during the 2025 U-17 Africa Cup of Nations in Morocco"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 320px, 90vw"
+              />
+            </div>
+            <div>
+              <SectionLabel>On the Ground</SectionLabel>
+              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-paper/88">
+                Mike Dietze with Wydad Athletic Club&apos;s sporting director
+                during the 2025 U-17 Africa Cup of Nations in Morocco.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b hairline-ivory bg-ivory py-14 md:py-18">
+        <Container>
+          <h2 className="font-display text-2xl text-ivory-ink">International Partners</h2>
           <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
             {internationalPartners.map((person) => (
-              <div key={person.slug} className="flex gap-6 border hairline-dark p-6">
+              <div key={person.slug} className="flex gap-6 border hairline-ivory p-6">
                 {/* Gradient placeholder avoids a flat "empty circle" look while the (low-res) photo lazy-loads */}
-                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ink-2 to-ink-3">
+                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ivory-2 to-ivory-line">
                   <Image
                     src={person.image!}
                     alt={person.imageAlt ?? person.name}
@@ -51,10 +75,10 @@ export default function InternationalNetworkPage() {
                   />
                 </div>
                 <div>
-                  <p className="text-[13px] text-muted-dark">Independent International Partner</p>
-                  <h3 className="mt-1 font-display text-xl text-paper">{person.name}</h3>
+                  <p className="text-[13px] text-ivory-muted">Independent International Partner</p>
+                  <h3 className="mt-1 font-display text-xl text-ivory-ink">{person.name}</h3>
                   <p className="mt-1 text-sm text-accent">{person.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-paper/88">{person.bio}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-ivory-ink/80">{person.bio}</p>
                 </div>
               </div>
             ))}
@@ -62,7 +86,7 @@ export default function InternationalNetworkPage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-12 md:py-16">
         <Container>
           <div className="max-w-2xl border hairline-dark p-8">
             <h3 className="font-display text-xl text-paper">{transferRoomCredential.title}</h3>

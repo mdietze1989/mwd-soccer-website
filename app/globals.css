@@ -14,6 +14,14 @@
   --color-muted-dark: #bbc2b8; /* brightened ~12% from #a7ada4 for legibility */
   --color-muted-light: #55574f;
 
+  /* Warm-ivory secondary background — used selectively (max once per page) to
+     break up long stretches of the dark surface without going fully light. */
+  --color-ivory: #f1eee7;
+  --color-ivory-2: #e8e3d8;
+  --color-ivory-ink: #171916;
+  --color-ivory-muted: #6b6a60;
+  --color-ivory-line: #dcd6c8;
+
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
 }
@@ -29,6 +37,11 @@
   --color-accent-soft: var(--color-accent-soft);
   --color-muted-dark: var(--color-muted-dark);
   --color-muted-light: var(--color-muted-light);
+  --color-ivory: var(--color-ivory);
+  --color-ivory-2: var(--color-ivory-2);
+  --color-ivory-ink: var(--color-ivory-ink);
+  --color-ivory-muted: var(--color-ivory-muted);
+  --color-ivory-line: var(--color-ivory-line);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
 }
@@ -67,6 +80,10 @@ a {
 
 .hairline-light {
   border-color: var(--color-line-light);
+}
+
+.hairline-ivory {
+  border-color: var(--color-ivory-line);
 }
 
 @media (prefers-reduced-motion: reduce) {
