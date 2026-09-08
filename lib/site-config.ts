@@ -17,8 +17,8 @@ export const siteConfig = {
   legalName: "MWD Soccer Agency LLC",
 
   // Domain
-  domain: "mwdsocceragency.com",
-  siteUrl: "https://mwdsocceragency.com",
+  domain: "mwdfootball.com",
+  siteUrl: "https://www.mwdfootball.com",
 
   // Contact
   emails: {
