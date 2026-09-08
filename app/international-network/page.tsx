@@ -7,7 +7,7 @@ import { transferRoomCredential } from "@/lib/content/track-record";
 export const metadata: Metadata = {
   title: "International Network",
   description:
-    "MWD Soccer's international partners in Senegal and Italy, collaborating on player representation and club access across North America, West Africa and Europe.",
+    "MWD Football Management's international partners in Senegal and Italy, collaborating on player representation and club access across North America, West Africa and Europe.",
 };
 
 const locations = ["United States", "Senegal", "Italy"];

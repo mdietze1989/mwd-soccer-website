@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const homeTitle = `${siteConfig.brandName} | FIFA-Licensed Player Representation`;
 const homeDescription =
-  "MWD Soccer represents college, academy and professional players through club placement, contract negotiation and career management across U.S. and international markets.";
+  "MWD Football Management represents college, academy and professional players through club placement, contract negotiation and career management across U.S. and international markets.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),

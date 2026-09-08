@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Talk to Mike Dietze at MWD Soccer — for players and families, clubs and sporting directors, or agents and international partners.",
+    "Talk to Mike Dietze at MWD Football Management — for players and families, clubs and sporting directors, or agents and international partners.",
 };
 
 const audiences = [

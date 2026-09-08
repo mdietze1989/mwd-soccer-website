@@ -74,7 +74,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.CONTACT_FROM_EMAIL ?? "MWD Soccer Website <onboarding@resend.dev>",
+        from: process.env.CONTACT_FROM_EMAIL ?? "MWD Football Management Website <onboarding@resend.dev>",
         to: siteConfig.emails.founder,
         reply_to: data.email,
         subject: `New inquiry from ${data.name} (${data.role ?? "Website"})`,

@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Track Record",
   description:
-    "MWD Soccer's track record: professional contracts and transfers, trials and draft opportunities, and international mandates and authorizations.",
+    "MWD Football Management's track record: professional contracts and transfers, trials and draft opportunities, and international mandates and authorizations.",
 };
 
 const categories = [

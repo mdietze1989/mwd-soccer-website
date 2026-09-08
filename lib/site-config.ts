@@ -9,7 +9,7 @@
 
 export const siteConfig = {
   // Public brand
-  brandName: "MWD Soccer",
+  brandName: "MWD Football Management",
   tagline:
     "FIFA-licensed player representation, contract negotiation and club placement. Based in Hoboken, New Jersey, working across U.S. and international markets.",
 

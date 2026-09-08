@@ -7,7 +7,7 @@ export type Person = {
   imageAlt?: string;
 };
 
-// Core team — people directly involved in MWD Soccer's day-to-day work.
+// Core team — people directly involved in MWD Football Management's day-to-day work.
 //
 // Bryan Longo and John McCluskey's photos are small, low-resolution source
 // files (pulled from an older site version) — candidates for a future
@@ -17,17 +17,17 @@ export const coreTeam: Person[] = [
     slug: "mike-dietze",
     name: "Mike Dietze",
     title: "Founder & FIFA-Licensed Agent",
-    bio: "Founder of MWD Soccer, handling player representation, contract negotiation and club placement.",
+    bio: "Founder of MWD Football Management, handling player representation, contract negotiation and club placement.",
     image: "/images/team/mike-dietze.jpg",
-    imageAlt: "Mike Dietze, Founder of MWD Soccer",
+    imageAlt: "Mike Dietze, Founder of MWD Football Management",
   },
   {
     slug: "bryan-longo",
     name: "Bryan Longo",
-    title: "Head of Scouting",
+    title: "Head of Talent Acquisition",
     bio: "Leads player identification, video review and scouting coordination across MWD's domestic and international network.",
     image: "/images/team/bryan-longo.jpg", // low-res source — replace when a higher-resolution photo is available
-    imageAlt: "Bryan Longo, Head of Scouting at MWD Soccer",
+    imageAlt: "Bryan Longo, Head of Talent Acquisition at MWD Football Management",
   },
   {
     slug: "john-mccluskey",
@@ -35,7 +35,7 @@ export const coreTeam: Person[] = [
     title: "Strategic Advisor",
     bio: "Advises MWD on commercial strategy, marketing and player brand development.",
     image: "/images/team/john-mccluskey.jpg", // low-res source — replace when a higher-resolution photo is available
-    imageAlt: "John McCluskey, Strategic Advisor at MWD Soccer",
+    imageAlt: "John McCluskey, Strategic Advisor at MWD Football Management",
   },
 ];
 

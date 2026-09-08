@@ -44,7 +44,7 @@ export default function HomePage() {
               From college and academy soccer to the professional game.
             </h1>
             <p className="rise-in rise-in-3 mt-6 max-w-lg text-lg text-paper/95">
-              MWD Soccer represents ambitious players through club placement,
+              MWD Football Management represents ambitious players through club placement,
               contract negotiation and every move that follows — across the
               United States and internationally.
             </p>

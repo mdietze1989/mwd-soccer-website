@@ -5,7 +5,7 @@ import { services } from "@/lib/content/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "MWD Soccer's services: college and academy transition, club placement and transfers, contract negotiation, career strategy, ongoing player management, and international market access.",
+    "MWD Football Management's services: college and academy transition, club placement and transfers, contract negotiation, career strategy, ongoing player management, and international market access.",
 };
 
 export default function ServicesPage() {

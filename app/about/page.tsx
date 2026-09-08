@@ -6,7 +6,7 @@ import { coreTeam } from "@/lib/content/people";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mike Dietze is the founder of MWD Soccer, a FIFA-licensed agent representing players in the United States and internationally.",
+    "Mike Dietze is the founder of MWD Football Management, a FIFA-licensed agent representing players in the United States and internationally.",
 };
 
 const credentials = [
@@ -45,7 +45,7 @@ export default function AboutPage() {
 
               <div className="mt-8 space-y-5 max-w-xl text-[15px] leading-relaxed text-paper/92">
                 <p>
-                  Mike Dietze founded MWD Soccer after careers in professional
+                  Mike Dietze founded MWD Football Management after careers in professional
                   soccer and sports business. A former Fort Lauderdale
                   Strikers and Philadelphia Fury player and Seton Hall
                   student-athlete, he brings a player&apos;s perspective to
