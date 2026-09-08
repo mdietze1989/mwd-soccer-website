@@ -181,6 +181,10 @@ export const clubOpportunities: ClubOpportunity[] = [
     player: "Delasi Batse",
     program: "UNC Charlotte — 2022 MLS Draft Prospect",
     detail: "Received a New York Red Bulls preseason invitation in 2022.",
+    image: {
+      src: "/images/players/batse/portrait.jpg",
+      alt: "Delasi Batse portrait",
+    },
   },
   {
     slug: "sam-gomez",
