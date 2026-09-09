@@ -24,12 +24,12 @@ type Entry = {
 
 export default function TrackRecordPage() {
   // One flat list — no "contracts" vs. "trials" vs. "mandates" tiers, and no
-  // one entry blown up bigger than the rest. Same card, same one-line
-  // context tag, same one confident sentence, for every person here,
-  // whether the underlying record is a signed contract, a trial, or a
-  // presentation. A photo shows up when there's a real one to show; when
-  // there isn't, the card is just shorter — no placeholder image standing
-  // in for a missing photo.
+  // one entry blown up bigger than the rest. Same card, same small photo
+  // treatment, same one-line context tag, same one confident sentence, for
+  // every person here, whether the underlying record is a signed contract,
+  // a trial, or a presentation. Card size never tracks whether we happen to
+  // have a good photo on file -- a photo is a modest accent, not the thing
+  // that decides how much weight an entry gets.
   const entries: Entry[] = [
     ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
     ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
@@ -64,21 +64,21 @@ export default function TrackRecordPage() {
               return (
                 <div
                   key={entry.key}
-                  className={`border hairline-dark ${isLoneTrailing ? "md:col-start-2" : ""}`}
+                  className={`flex gap-4 border hairline-dark p-6 ${isLoneTrailing ? "md:col-start-2" : ""}`}
                 >
                   {entry.image && (
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
+                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-ink">
                       <Image
                         src={entry.image.src}
                         alt={entry.image.alt}
                         fill
                         className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
                         style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
-                        sizes="(min-width: 768px) 31vw, 92vw"
+                        sizes="64px"
                       />
                     </div>
                   )}
-                  <div className="p-6">
+                  <div>
                     <p className="text-sm text-muted-dark">{entry.label}</p>
                     <h3 className="mt-1 font-display text-xl text-paper">{entry.name}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-paper/88">{entry.blurb}</p>
