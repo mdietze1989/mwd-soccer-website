@@ -65,8 +65,8 @@ export default function TrackRecordPage() {
                   key={entry.key}
                   className={`border hairline-dark ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[420px]" : ""}`}
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
-                    {entry.image ? (
+                  {entry.image && (
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
                       <Image
                         src={entry.image.src}
                         alt={entry.image.alt}
@@ -75,16 +75,8 @@ export default function TrackRecordPage() {
                         style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
                         sizes="(min-width: 768px) 46vw, 92vw"
                       />
-                    ) : (
-                      // No photo on file — a styled panel instead of a photo,
-                      // not a placeholder pretending to be one.
-                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ink-2 to-ink-3 p-6">
-                        <p className="text-center font-display text-2xl text-paper/55">
-                          {entry.name}
-                        </p>
-                      </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <div className="p-6">
                     <p className="text-sm text-muted-dark">{entry.label}</p>
                     <h3 className="mt-1 font-display text-xl text-paper">{entry.name}</h3>
