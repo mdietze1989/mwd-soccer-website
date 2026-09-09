@@ -221,14 +221,14 @@ export const authorizations: Authorization[] = [
   {
     slug: "marco-imperiale",
     player: "Marco Imperiale",
-    scope: "Serie B Club Mandate",
+    scope: "MLS Interest Mandate",
     detail:
       "Jointly authorized by Carrarese Calcio 1908, together with FIFA-licensed agent Paolo Maria Grimaldi, to assess interest from MLS and affiliated clubs.",
   },
   {
     slug: "maksim-samorodov",
     player: "Maksim Samorodov",
-    scope: "International Player Authorization",
+    scope: "MLS Co-Agent Mandate",
     detail:
       "Authorized as co-agent to present Kazakhstan international and Russian Premier League winger Maksim Samorodov for specified MLS opportunities, including Columbus Crew and San Jose Earthquakes.",
   },
