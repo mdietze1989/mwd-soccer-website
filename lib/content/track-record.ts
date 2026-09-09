@@ -221,13 +221,13 @@ export const authorizations: Authorization[] = [
   {
     slug: "marco-imperiale",
     player: "Marco Imperiale",
-    scope: "Serie B — Carrarese Calcio",
+    scope: "Serie B Italy",
     detail: "Presented to MLS clubs league-wide.",
   },
   {
     slug: "maksim-samorodov",
     player: "Maksim Samorodov",
-    scope: "Kazakhstan International — Akhmat Grozny",
+    scope: "Russian Premier League",
     detail: "Presented to Columbus Crew and San Jose Earthquakes.",
   },
 ];
