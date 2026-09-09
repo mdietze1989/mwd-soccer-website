@@ -196,6 +196,12 @@ export const clubOpportunities: ClubOpportunity[] = [
       alt: "Sam Gomez portrait",
     },
   },
+  {
+    slug: "kwadwo-amoako",
+    player: "Kwadwo Amoako",
+    program: "Ghana Premier League — Ashanti Gold & Medeama SC",
+    detail: "Called into Ghana's national team camp for 2021 AFCON qualifiers and secured a trial with FC Dila Gori in Georgia.",
+  },
 ];
 
 // TransferRoom is a professional credential/tool, not a player outcome — shown
