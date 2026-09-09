@@ -199,7 +199,7 @@ export const clubOpportunities: ClubOpportunity[] = [
   {
     slug: "kwadwo-amoako",
     player: "Kwadwo Amoako",
-    program: "Ghana Premier League — Ashanti Gold & Medeama SC",
+    program: "Ghana Premier League — Ashanti Gold, Medeama SC & Aduana FC",
     detail: "Called into Ghana's national team camp for 2021 AFCON qualifiers and secured a trial with FC Dila Gori in Georgia.",
     image: {
       src: "/images/players/amoako/portrait.jpg",
