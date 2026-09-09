@@ -246,12 +246,12 @@ export default function TrackRecordPage() {
       <section id="authorizations" className="scroll-mt-20 py-20">
         <Container>
           <h2 className="font-display text-3xl text-paper">
-            MLS clubs authorize Mike directly.
+            The trusted route into MLS.
           </h2>
           <p className="mt-4 max-w-xl text-sm text-muted-dark">
-            Player presentations, co-agent mandates and direct
-            sporting-director access — initiated by the clubs, not chased by
-            the agent.
+            Players, agents and clubs turn to Mike to reach the right
+            decision-makers at MLS clubs — through direct presentations and
+            co-agent mandates.
           </p>
 
           <div className="mt-12 divide-y hairline-dark border-t hairline-dark">
