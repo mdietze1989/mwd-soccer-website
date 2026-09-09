@@ -165,6 +165,16 @@ export const professionalDeals: ProfessionalDeal[] = [
 
 export const clubOpportunities: ClubOpportunity[] = [
   {
+    slug: "kairou-amoustapha",
+    player: "Kairou Amoustapha",
+    program: "FC Etzella Ettelbruck | Luxembourg",
+    detail: "U.S. market representation.",
+    image: {
+      src: "/images/players/amoustapha/portrait.jpg",
+      alt: "Kairou Amoustapha portrait",
+    },
+  },
+  {
     slug: "delasi-batse",
     player: "Delasi Batse",
     program: "UNC Charlotte",
