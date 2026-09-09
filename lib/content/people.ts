@@ -39,7 +39,9 @@ export const coreTeam: Person[] = [
   },
 ];
 
-// International partners — independent, FIFA-licensed collaborators, not staff.
+// International partners — independent collaborators, not staff. Not all are
+// licensed agents (see Issa's relationship-based role) — title should stay
+// accurate to each person's actual standing rather than implying a license.
 //
 // Paolo Maria Grimaldi's photo is still a candidate for a future
 // high-resolution replacement — keep as-is for now.
@@ -59,5 +61,13 @@ export const internationalPartners: Person[] = [
     bio: "Based in Italy, Paolo collaborates with MWD on European player access, club relationships and cross-border assignments, including matters reflected in MWD's Track Record.",
     image: "/images/partners/paolo-grimaldi.jpg", // low-res source — replace when a higher-resolution photo is available
     imageAlt: "Paolo Maria Grimaldi",
+  },
+  {
+    slug: "issa-cissokho",
+    name: "Issa Cissokho",
+    title: "Former Ligue 1 Player | France",
+    bio: "A former Ligue 1 player, Issa helps MWD gain presence in the French leagues.",
+    image: "/images/partners/issa-cissokho.jpg",
+    imageAlt: "Issa Cissokho",
   },
 ];

@@ -188,17 +188,26 @@ export default function HomePage() {
               </h2>
               <p className="mt-3 max-w-lg text-[15px] text-paper/80">
                 MWD players work directly with Mike Dietze, supported by
-                FIFA-licensed partners in West Africa and Europe and
-                relationships with club decision-makers throughout the United
-                States.
+                FIFA-licensed partners and trusted contacts across West
+                Africa and Europe, and relationships with club
+                decision-makers throughout the United States.
               </p>
             </div>
             <TextLink href="/international-network">Meet the Network</TextLink>
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {internationalPartners.map((person) => (
-              <div key={person.slug} className="flex gap-5 border hairline-dark p-6">
+            {internationalPartners.map((person, i) => {
+              // Same odd-count centering used on the Track Record and
+              // International Network pages.
+              const isDangling =
+                internationalPartners.length % 2 !== 0 &&
+                i === internationalPartners.length - 1;
+              return (
+              <div
+                key={person.slug}
+                className={`flex gap-5 border hairline-dark p-6 ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[280px]" : ""}`}
+              >
                 {/* Gradient placeholder avoids a flat "empty circle" look while the (low-res) photo lazy-loads */}
                 <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ink-2 to-ink-3">
                   <Image
@@ -214,7 +223,8 @@ export default function HomePage() {
                   <p className="mt-1 text-sm text-accent">{person.title}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>

@@ -7,10 +7,10 @@ import { transferRoomCredential } from "@/lib/content/track-record";
 export const metadata: Metadata = {
   title: "International Network",
   description:
-    "MWD Football Management's international partners in Senegal and Italy, collaborating on player representation and club access across North America, West Africa and Europe.",
+    "MWD Football Management's international partners in Senegal, Italy and France, collaborating on player representation and club access across North America, West Africa and Europe.",
 };
 
-const locations = ["United States", "Senegal", "Italy"];
+const locations = ["United States", "Senegal", "Italy", "France"];
 
 export default function InternationalNetworkPage() {
   return (
@@ -23,8 +23,8 @@ export default function InternationalNetworkPage() {
           </h1>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
             MWD players work directly with Mike Dietze, supported by
-            FIFA-licensed partners and club relationships across North
-            America, West Africa and Europe.
+            FIFA-licensed partners, trusted contacts and club relationships
+            across North America, West Africa and Europe.
           </p>
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-t hairline-dark pt-6 text-sm text-muted-dark">
             {locations.map((loc) => (
@@ -62,8 +62,18 @@ export default function InternationalNetworkPage() {
         <Container>
           <h2 className="font-display text-2xl text-ivory-ink">International Partners</h2>
           <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
-            {internationalPartners.map((person) => (
-              <div key={person.slug} className="flex gap-6 border hairline-ivory p-6">
+            {internationalPartners.map((person, i) => {
+              // Same odd-count centering used on the Track Record page — the
+              // last card in an odd-length list would otherwise sit alone
+              // with an empty gap beside it.
+              const isDangling =
+                internationalPartners.length % 2 !== 0 &&
+                i === internationalPartners.length - 1;
+              return (
+              <div
+                key={person.slug}
+                className={`flex gap-6 border hairline-ivory p-6 ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[420px]" : ""}`}
+              >
                 {/* Gradient placeholder avoids a flat "empty circle" look while the (low-res) photo lazy-loads */}
                 <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-ivory-2 to-ivory-line">
                   <Image
@@ -75,13 +85,13 @@ export default function InternationalNetworkPage() {
                   />
                 </div>
                 <div>
-                  <p className="text-[13px] text-ivory-muted">Independent International Partner</p>
-                  <h3 className="mt-1 font-display text-xl text-ivory-ink">{person.name}</h3>
+                  <h3 className="font-display text-xl text-ivory-ink">{person.name}</h3>
                   <p className="mt-1 text-sm text-accent">{person.title}</p>
                   <p className="mt-3 text-sm leading-relaxed text-ivory-ink/80">{person.bio}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>
