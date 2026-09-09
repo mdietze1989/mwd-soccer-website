@@ -28,8 +28,8 @@ export default function TrackRecordPage() {
   // context tag, same one confident sentence, for every person here,
   // whether the underlying record is a signed contract, a trial, or a
   // presentation. A photo shows up when there's a real one to show; when
-  // there isn't, the entry is just text — no placeholder avatar standing in
-  // for a missing photo.
+  // there isn't, the card is just shorter — no placeholder image standing
+  // in for a missing photo.
   const entries: Entry[] = [
     ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
     ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
@@ -55,15 +55,16 @@ export default function TrackRecordPage() {
 
       <section className="py-20">
         <Container>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {entries.map((entry, i) => {
-              // Odd-count safety net: center a trailing lone card instead of
-              // leaving it stuck alone with an empty gap beside it.
-              const isDangling = entries.length % 2 !== 0 && i === entries.length - 1;
+              // A lone trailing card (list length leaves exactly one on the
+              // last row) centers in the middle column instead of sitting
+              // off to one side with two empty slots beside it.
+              const isLoneTrailing = entries.length % 3 === 1 && i === entries.length - 1;
               return (
                 <div
                   key={entry.key}
-                  className={`border hairline-dark ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[420px]" : ""}`}
+                  className={`border hairline-dark ${isLoneTrailing ? "md:col-start-2" : ""}`}
                 >
                   {entry.image && (
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
@@ -73,7 +74,7 @@ export default function TrackRecordPage() {
                         fill
                         className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
                         style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
-                        sizes="(min-width: 768px) 46vw, 92vw"
+                        sizes="(min-width: 768px) 31vw, 92vw"
                       />
                     </div>
                   )}
