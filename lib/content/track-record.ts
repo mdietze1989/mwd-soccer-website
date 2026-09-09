@@ -111,9 +111,9 @@ export const professionalDeals: ProfessionalDeal[] = [
     player: "Gaoussou Samake",
     metaLine: "D.C. United → Las Vegas Lights FC | 2022–2025",
     careerLine: "D.C. United → Las Vegas Lights FC",
-    homeSummary: "MLS experience with D.C. United, followed by a two-year USL Championship contract with Las Vegas Lights.",
+    homeSummary: "Two-year contract with D.C. United in MLS, followed by a two-year contract with Las Vegas Lights in USL Championship.",
     summary:
-      "MLS experience with D.C. United, followed by a two-year USL Championship contract with Las Vegas Lights.",
+      "Two-year contract with D.C. United in MLS, followed by a two-year contract with Las Vegas Lights in USL Championship.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/samake/dc-united-action.jpg",

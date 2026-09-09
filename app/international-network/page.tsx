@@ -41,7 +41,7 @@ export default function InternationalNetworkPage() {
             <div className="relative aspect-[7/8] w-full overflow-hidden bg-ink-2">
               <Image
                 src="/images/network/wydad-morocco.jpg"
-                alt="Mike Dietze with Wydad Athletic Club's sporting director during the 2025 U-17 Africa Cup of Nations in Morocco"
+                alt="Mike Dietze with Wydad Casablanca's Sporting Director, Youssef Debbagh, during the 2025 U-17 Africa Cup of Nations in Morocco"
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 48vw, 90vw"
@@ -50,8 +50,9 @@ export default function InternationalNetworkPage() {
             <div className="max-w-sm">
               <SectionLabel>On the Ground</SectionLabel>
               <p className="mt-3 text-[15px] leading-relaxed text-paper/88">
-                Mike Dietze with Wydad Athletic Club&apos;s sporting director
-                during the 2025 U-17 Africa Cup of Nations in Morocco.
+                Mike Dietze with Wydad Casablanca&apos;s Sporting Director,
+                Youssef Debbagh, during the 2025 U-17 African Cup of Nations
+                in Morocco.
               </p>
             </div>
           </div>
