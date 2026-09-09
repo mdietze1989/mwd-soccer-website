@@ -101,13 +101,6 @@ export const professionalDeals: ProfessionalDeal[] = [
       alt: "Jack Singer in match action for Las Vegas Lights FC",
       position: "30% center",
     },
-    secondaryImages: [
-      {
-        src: "/images/players/singer/portrait.jpg",
-        alt: "Jack Singer portrait in Las Vegas Lights FC kit",
-        fit: "contain",
-      },
-    ],
     career: [
       { club: "Las Vegas Lights FC", league: "USL Championship", period: "2025", note: "Guaranteed professional contract" },
     ],

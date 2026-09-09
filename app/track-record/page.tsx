@@ -152,36 +152,35 @@ export default function TrackRecordPage() {
           {/* Other players */}
           <div className="mt-20 divide-y hairline-dark border-t hairline-dark">
             {otherDeals.map((deal) => (
-              <div
-                key={deal.slug}
-                className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[220px_1fr] md:gap-10"
-              >
-                <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden bg-ink-2">
-                  <Image
-                    src={deal.primaryImage.src}
-                    alt={deal.primaryImage.alt}
-                    fill
-                    className={deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
-                    style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
-                    sizes="220px"
-                  />
+              <div key={deal.slug} className="py-10">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr] md:gap-10">
+                  <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden bg-ink-2">
+                    <Image
+                      src={deal.primaryImage.src}
+                      alt={deal.primaryImage.alt}
+                      fill
+                      className={deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
+                      style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
+                      sizes="220px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-dark">{deal.metaLine}</p>
+                    <h3 className="mt-1 font-display text-2xl text-paper">
+                      {deal.player}
+                    </h3>
+                    <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-paper/92">
+                      {deal.summary}
+                    </p>
+                    {deal.career && deal.career.length > 0 && <Timeline steps={deal.career} />}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm text-muted-dark">{deal.metaLine}</p>
-                  <h3 className="mt-1 font-display text-2xl text-paper">
-                    {deal.player}
-                  </h3>
-                  <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-paper/92">
-                    {deal.summary}
-                  </p>
-                  {deal.career && deal.career.length > 0 && <Timeline steps={deal.career} />}
-                </div>
-                {/* Supporting photos sit in their own full-width strip below both
-                    columns, rather than stacked under the primary image — that kept
-                    the image column much taller than a short career history, leaving
-                    the text column looking short beside a lot of empty space. */}
+                {/* Supporting photos sit as a normal block after the grid (like
+                    Landry's gallery), not as a grid child — a grid child inherits
+                    row-stretch from the taller column, so it doesn't start until
+                    that column finishes even when the text column is much shorter. */}
                 {deal.secondaryImages && deal.secondaryImages.length > 0 && (
-                  <div className="flex flex-wrap gap-4 md:col-span-2">
+                  <div className="mt-6 flex flex-wrap gap-4">
                     {deal.secondaryImages.map((img) => (
                       <div
                         key={img.src}
