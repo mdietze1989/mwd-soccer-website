@@ -5,54 +5,61 @@ import {
   professionalDeals,
   clubOpportunities,
   authorizations,
+  type ImageRef,
 } from "@/lib/content/track-record";
 
 export const metadata: Metadata = {
   title: "Track Record",
   description:
-    "MWD Football Management's track record: professional contracts and transfers, trials and draft opportunities, and international mandates and authorizations.",
+    "MWD Football Management's track record: players Mike has placed, presented and worked with across the U.S. and international game.",
 };
 
-const categories = [
-  { id: "contracts", label: "Player Contracts & Transfers" },
-  { id: "opportunities", label: "Trials & Professional Opportunities" },
-  { id: "authorizations", label: "International Mandates" },
-];
+type Entry = {
+  key: string;
+  name: string;
+  label: string;
+  blurb: string;
+  image?: ImageRef;
+};
 
-function Timeline({ steps }: { steps: { club: string; league?: string; period: string; note: string; status?: string }[] }) {
+function Avatar({ entry }: { entry: Entry }) {
+  if (entry.image) {
+    return (
+      <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink">
+        <Image
+          src={entry.image.src}
+          alt={entry.image.alt}
+          fill
+          className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
+          style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
+          sizes="80px"
+        />
+      </div>
+    );
+  }
   return (
-    <ol className="mt-6 space-y-4 border-t hairline-dark pt-6">
-      {steps.map((step, i) => (
-        <li key={step.club} className="flex gap-4">
-          <span className="font-display text-sm text-accent">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <div>
-            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-paper">
-              <span>
-                {step.club}
-                {step.league ? (
-                  <span className="text-muted-dark"> &middot; {step.league}</span>
-                ) : null}
-                <span className="text-muted-dark"> &middot; {step.period}</span>
-              </span>
-              {step.status && (
-                <span className="rounded-full border border-accent/50 px-2 py-0.5 text-[11px] uppercase tracking-wide text-accent">
-                  {step.status}
-                </span>
-              )}
-            </p>
-            <p className="mt-1 text-sm text-muted-dark">{step.note}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
+    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border hairline-dark font-display text-lg text-accent">
+      {entry.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")}
+    </div>
   );
 }
 
 export default function TrackRecordPage() {
   const landry = professionalDeals.find((d) => d.slug === "houssou-landry")!;
-  const otherDeals = professionalDeals.filter((d) => d.slug !== "houssou-landry");
+
+  // One flat list — no "contracts" vs. "trials" vs. "mandates" tiers. Every
+  // entry gets the same card treatment and the same amount of detail: a
+  // photo, a one-line context tag, and one confident, factual sentence.
+  const entries: Entry[] = [
+    ...professionalDeals
+      .filter((d) => d.slug !== "houssou-landry")
+      .map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage })),
+    ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
+    ...authorizations.map((a) => ({ key: a.slug, name: a.player, label: a.scope, blurb: a.detail, image: a.image })),
+  ];
 
   return (
     <>
@@ -63,222 +70,91 @@ export default function TrackRecordPage() {
             Your first professional contract is the beginning — not the destination.
           </h1>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
-            Contracts, transfers, trials and club opportunities completed
-            across the U.S. and international game.
+            Players Mike has placed, presented and worked with across the
+            U.S. and international game.
           </p>
-
-          <nav className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t hairline-dark pt-6">
-            {categories.map((c) => (
-              <a
-                key={c.id}
-                href={`#${c.id}`}
-                className="text-sm text-muted-dark hover:text-accent"
-              >
-                {c.label}
-              </a>
-            ))}
-          </nav>
         </Container>
       </section>
 
-      {/* Player Contracts & Transfers */}
-      <section id="contracts" className="scroll-mt-20 border-b hairline-dark py-20">
+      <section className="py-20">
         <Container>
-          <h2 className="font-display text-3xl text-paper">
-            Player Contracts &amp; Transfers
-          </h2>
-
-          {/* Landry — featured, strongest career-management case */}
-          <div className="mt-14">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,340px)_1fr]">
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
-                <Image
-                  src={landry.primaryImage.src}
-                  alt={landry.primaryImage.alt}
-                  fill
-                  className={landry.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
-                  sizes="(min-width: 768px) 340px, 90vw"
-                />
-              </div>
-              <div>
-                <p className="text-sm text-muted-dark">{landry.metaLine}</p>
-                <h3 className="mt-1 font-display text-2xl text-paper">
-                  {landry.player}
-                </h3>
-                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-paper/92">
-                  {landry.summary}
-                </p>
-                {landry.career && <Timeline steps={landry.career} />}
-              </div>
-            </div>
-
-            {/* Loudoun + New Mexico as portrait thumbnails (their source photos are
-                tall action shots); Charleston action stays landscape — each keeps its
-                native shape instead of forcing one destructive crop. Given its own
-                full-width row below (rather than stacked in the 340px image column)
-                so it doesn't leave the text column looking short beside a tall stack. */}
-            {landry.secondaryImages && landry.secondaryImages.length > 0 && (
-              <div className="mt-8 max-w-2xl">
-                <div className="grid grid-cols-2 gap-4">
-                  {landry.secondaryImages.slice(0, 2).map((img) => (
-                    <div key={img.src} className="relative aspect-[3/4] overflow-hidden bg-ink-2">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className={img.fit === "contain" ? "object-contain" : "object-cover"}
-                        style={img.position ? { objectPosition: img.position } : undefined}
-                        sizes="(min-width: 768px) 328px, 45vw"
-                      />
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2">
+            {/* Landry — leads the list because there's simply more real material
+                to show (a documented, multi-club history), not because he
+                belongs to a higher-tier category. */}
+            <div className="md:col-span-2">
+              <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,340px)_1fr]">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
+                  <Image
+                    src={landry.primaryImage.src}
+                    alt={landry.primaryImage.alt}
+                    fill
+                    className={landry.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
+                    sizes="(min-width: 768px) 340px, 90vw"
+                  />
                 </div>
-                {landry.secondaryImages.length > 2 && (
-                  <div className="mt-4 relative aspect-[16/9] overflow-hidden bg-ink-2">
-                    <Image
-                      src={landry.secondaryImages[2].src}
-                      alt={landry.secondaryImages[2].alt}
-                      fill
-                      className={landry.secondaryImages[2].fit === "contain" ? "object-contain" : "object-cover"}
-                      style={landry.secondaryImages[2].position ? { objectPosition: landry.secondaryImages[2].position } : undefined}
-                      sizes="(min-width: 768px) 672px, 90vw"
-                    />
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Other players */}
-          <div className="mt-20 divide-y hairline-dark border-t hairline-dark">
-            {otherDeals.map((deal) => (
-              <div key={deal.slug} className="py-10">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr] md:gap-10">
-                  <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden bg-ink-2">
-                    <Image
-                      src={deal.primaryImage.src}
-                      alt={deal.primaryImage.alt}
-                      fill
-                      className={deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
-                      style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
-                      sizes="220px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-dark">{deal.metaLine}</p>
-                    <h3 className="mt-1 font-display text-2xl text-paper">
-                      {deal.player}
-                    </h3>
-                    <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-paper/92">
-                      {deal.summary}
-                    </p>
-                    {deal.career && deal.career.length > 0 && <Timeline steps={deal.career} />}
-                  </div>
+                <div>
+                  <p className="text-sm text-muted-dark">{landry.metaLine}</p>
+                  <h3 className="mt-1 font-display text-2xl text-paper">
+                    {landry.player}
+                  </h3>
+                  <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-paper/92">
+                    {landry.summary}
+                  </p>
                 </div>
-                {/* Supporting photos sit as a normal block after the grid (like
-                    Landry's gallery), not as a grid child — a grid child inherits
-                    row-stretch from the taller column, so it doesn't start until
-                    that column finishes even when the text column is much shorter. */}
-                {deal.secondaryImages && deal.secondaryImages.length > 0 && (
-                  <div className="mt-6 flex flex-wrap gap-4">
-                    {deal.secondaryImages.map((img) => (
-                      <div
-                        key={img.src}
-                        className="relative aspect-[4/3] w-40 overflow-hidden bg-ink-2"
-                      >
+              </div>
+
+              {landry.secondaryImages && landry.secondaryImages.length > 0 && (
+                <div className="mt-8 max-w-2xl">
+                  <div className="grid grid-cols-2 gap-4">
+                    {landry.secondaryImages.slice(0, 2).map((img) => (
+                      <div key={img.src} className="relative aspect-[3/4] overflow-hidden bg-ink-2">
                         <Image
                           src={img.src}
                           alt={img.alt}
                           fill
                           className={img.fit === "contain" ? "object-contain" : "object-cover"}
                           style={img.position ? { objectPosition: img.position } : undefined}
-                          sizes="160px"
+                          sizes="(min-width: 768px) 328px, 45vw"
                         />
                       </div>
                     ))}
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Trials & Professional Opportunities */}
-      <section id="opportunities" className="scroll-mt-20 border-b hairline-dark bg-ink-2 py-20">
-        <Container>
-          <h2 className="font-display text-3xl text-paper">
-            Professional Trials &amp; Draft Opportunities
-          </h2>
-          <p className="mt-4 max-w-xl text-sm text-muted-dark">
-            Club invitations and formal shortlists secured for MWD players.
-          </p>
-
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {clubOpportunities.map((o, i) => {
-              // If the list has an odd count, the last card would otherwise sit
-              // alone on the left with an empty gap beside it — center it at
-              // half width instead so it reads as deliberate, not orphaned.
-              const isDangling =
-                clubOpportunities.length % 2 !== 0 &&
-                i === clubOpportunities.length - 1;
-              return (
-              <div
-                key={o.slug}
-                className={`flex gap-5 border hairline-dark p-6 ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[360px]" : ""}`}
-              >
-                {o.image ? (
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink">
-                    <Image
-                      src={o.image.src}
-                      alt={o.image.alt}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border hairline-dark font-display text-lg text-accent">
-                    {o.player
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                )}
-                <div>
-                  <p className="text-sm text-muted-dark">{o.program}</p>
-                  <h3 className="mt-1 font-display text-xl text-paper">{o.player}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-paper/88">{o.detail}</p>
+                  {landry.secondaryImages.length > 2 && (
+                    <div className="mt-4 relative aspect-[16/9] overflow-hidden bg-ink-2">
+                      <Image
+                        src={landry.secondaryImages[2].src}
+                        alt={landry.secondaryImages[2].alt}
+                        fill
+                        className={landry.secondaryImages[2].fit === "contain" ? "object-contain" : "object-cover"}
+                        style={landry.secondaryImages[2].position ? { objectPosition: landry.secondaryImages[2].position } : undefined}
+                        sizes="(min-width: 768px) 672px, 90vw"
+                      />
+                    </div>
+                  )}
                 </div>
-              </div>
+              )}
+            </div>
+
+            {entries.map((entry, i) => {
+              // Odd-count safety net: if the list ever ends up with an odd
+              // number of entries, center the last one instead of leaving it
+              // stuck alone with an empty gap beside it.
+              const isDangling = entries.length % 2 !== 0 && i === entries.length - 1;
+              return (
+                <div
+                  key={entry.key}
+                  className={`flex gap-5 border hairline-dark p-6 ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[360px]" : ""}`}
+                >
+                  <Avatar entry={entry} />
+                  <div>
+                    <p className="text-sm text-muted-dark">{entry.label}</p>
+                    <h3 className="mt-1 font-display text-xl text-paper">{entry.name}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-paper/88">{entry.blurb}</p>
+                  </div>
+                </div>
               );
             })}
-          </div>
-        </Container>
-      </section>
-
-      {/* International Mandates & Authorizations */}
-      <section id="authorizations" className="scroll-mt-20 py-20">
-        <Container>
-          <h2 className="font-display text-3xl text-paper">
-            The trusted route into MLS.
-          </h2>
-          <p className="mt-4 max-w-xl text-sm text-muted-dark">
-            Players, agents and clubs turn to Mike to reach the right
-            decision-makers at MLS clubs — through direct presentations and
-            co-agent mandates.
-          </p>
-
-          <div className="mt-12 divide-y hairline-dark border-t hairline-dark">
-            {authorizations.map((a) => (
-              <div key={a.slug} className="grid grid-cols-1 gap-2 py-8 md:grid-cols-[1fr_2fr] md:gap-10">
-                <div>
-                  <p className="text-sm text-accent">{a.scope}</p>
-                  <h3 className="mt-1 font-display text-xl text-paper">{a.player}</h3>
-                </div>
-                <p className="text-[15px] leading-relaxed text-paper/92">{a.detail}</p>
-              </div>
-            ))}
           </div>
         </Container>
       </section>

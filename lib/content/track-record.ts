@@ -45,6 +45,7 @@ export type Authorization = {
   player: string;
   scope: string; // e.g. "MLS Authorization"
   detail: string;
+  image?: ImageRef;
 };
 
 // Player order: Houssou is the strongest career-management case, and Jack is
@@ -57,9 +58,9 @@ export const professionalDeals: ProfessionalDeal[] = [
     metaLine: "USL Championship | 2023–2028",
     careerLine: "Loudoun United → New Mexico United → Charleston Battery → Athletic Club Boise",
     homeSummary:
-      "Three USL Championship clubs across four completed professional seasons, followed by a two-year term sheet from Athletic Club Boise for 2027–2028.",
+      "Three USL Championship clubs — Loudoun United, New Mexico United, Charleston Battery — with a multi-year move to Athletic Club Boise ahead of the club's 2027 launch.",
     summary:
-      "Three completed USL Championship moves, with a two-year Athletic Club Boise term sheet secured ahead of the club's 2027 launch.",
+      "Three USL Championship clubs — Loudoun United, New Mexico United, Charleston Battery — with a multi-year move to Athletic Club Boise ahead of the club's 2027 launch.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/landry/charleston-signing.jpg",
@@ -110,21 +111,15 @@ export const professionalDeals: ProfessionalDeal[] = [
     player: "Gaoussou Samake",
     metaLine: "D.C. United → Las Vegas Lights FC | 2022–2025",
     careerLine: "D.C. United → Las Vegas Lights FC",
-    homeSummary: "MLS representation followed by a two-year USL Championship agreement.",
+    homeSummary: "MLS experience with D.C. United, followed by a two-year USL Championship contract with Las Vegas Lights.",
     summary:
-      "Represented by MWD during his MLS career with D.C. United before a two-year USL Championship agreement with Las Vegas Lights covering the 2024 and 2025 seasons.",
+      "MLS experience with D.C. United, followed by a two-year USL Championship contract with Las Vegas Lights.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/samake/dc-united-action.jpg",
       alt: "Gaoussou Samake in match action for D.C. United against Philadelphia Union",
       position: "65% center",
     },
-    secondaryImages: [
-      {
-        src: "/images/players/samake/las-vegas-action.jpg",
-        alt: "Gaoussou Samake in match action for Las Vegas Lights FC",
-      },
-    ],
     career: [
       { club: "D.C. United", league: "MLS", period: "2022", note: "Two-year professional contract with options for additional years" },
       { club: "Las Vegas Lights FC", league: "USL Championship", period: "2024–2025", note: "Two-year USL Championship contract" },
@@ -137,7 +132,7 @@ export const professionalDeals: ProfessionalDeal[] = [
     careerLine: "Rio Grande Valley FC Toros → Monterey Bay FC",
     homeSummary: "First professional contract in 2022, followed by a move to Monterey Bay FC for 2026.",
     summary:
-      "First professional contract with Rio Grande Valley FC in 2022, followed by a move to Monterey Bay FC for the 2026 season.",
+      "First professional contract with Rio Grande Valley FC in 2022, followed by a move to Monterey Bay FC for 2026.",
     role: "Representation & contract negotiation",
     primaryImage: {
       src: "/images/players/malesevic/monterey-bay-action.jpg",
@@ -155,8 +150,7 @@ export const professionalDeals: ProfessionalDeal[] = [
     metaLine: "ASEC Mimosas → North Texas SC | 2024",
     careerLine: "ASEC Mimosas → North Texas SC",
     homeSummary: "A 2024 loan move to North Texas SC in MLS NEXT Pro.",
-    summary:
-      "Completed a 2024 loan move to North Texas SC in MLS NEXT Pro. Written offers were also received from New England Revolution II and Rhode Island FC.",
+    summary: "A 2024 loan move to North Texas SC in MLS NEXT Pro.",
     role: "Representation & club placement",
     primaryImage: {
       src: "/images/players/zanne/north-texas-sc.jpg",
@@ -173,7 +167,7 @@ export const clubOpportunities: ClubOpportunity[] = [
   {
     slug: "delasi-batse",
     player: "Delasi Batse",
-    program: "UNC Charlotte — 2022 MLS Draft Prospect",
+    program: "UNC Charlotte",
     detail: "Received a New York Red Bulls preseason invitation in 2022.",
     image: {
       src: "/images/players/batse/portrait.jpg",
@@ -183,8 +177,8 @@ export const clubOpportunities: ClubOpportunity[] = [
   {
     slug: "sam-gomez",
     player: "Sam Gomez",
-    program: "2020 MLS Draft Prospect",
-    detail: "Named to Nashville SC's MLS Draft shortlist in 2020.",
+    program: "2020 MLS Draft",
+    detail: "Shortlisted for Nashville SC's 2020 MLS Draft class.",
     image: {
       src: "/images/players/gomez/portrait.jpg",
       alt: "Sam Gomez portrait",
@@ -215,8 +209,7 @@ export const authorizations: Authorization[] = [
     slug: "edinson-cavani",
     player: "Edinson Cavani",
     scope: "Uruguayan International",
-    detail:
-      "Presented to Austin FC, New England Revolution, D.C. United, San Jose Earthquakes, New York Red Bulls, San Diego FC and Charlotte FC.",
+    detail: "Presented to MLS clubs.",
   },
   {
     slug: "marco-imperiale",
@@ -228,6 +221,6 @@ export const authorizations: Authorization[] = [
     slug: "maksim-samorodov",
     player: "Maksim Samorodov",
     scope: "Russian Premier League",
-    detail: "Presented to Columbus Crew and San Jose Earthquakes.",
+    detail: "Presented to MLS clubs.",
   },
 ];
