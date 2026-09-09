@@ -41,15 +41,15 @@ export const coreTeam: Person[] = [
 
 // International partners — independent, FIFA-licensed collaborators, not staff.
 //
-// Boly Gaye Seck Sonko and Paolo Maria Grimaldi's photos are also candidates
-// for a future high-resolution replacement — keep as-is for now.
+// Paolo Maria Grimaldi's photo is still a candidate for a future
+// high-resolution replacement — keep as-is for now.
 export const internationalPartners: Person[] = [
   {
     slug: "boly-gaye-seck-sonko",
     name: "Boly Gaye Seck Sonko",
     title: "FIFA-Licensed Agent | Senegal and West Africa",
     bio: "Based in Senegal, Boly collaborates with MWD on player identification, representation and club opportunities connecting West Africa with North American and European markets.",
-    image: "/images/partners/boly-sonko.jpg", // low-res source — replace when a higher-resolution photo is available
+    image: "/images/partners/boly-sonko.jpg",
     imageAlt: "Boly Gaye Seck Sonko",
   },
   {
