@@ -45,15 +45,17 @@ export default function TrackRecordPage() {
             Your first professional contract is the beginning — not the destination.
           </h1>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
-            Players Mike has placed, presented and worked with across the
-            U.S. and international game.
+            Players Mike has placed, presented and worked with across MLS,
+            USL Championship, MLS NEXT Pro and the international game —
+            including direct presentations to MLS clubs on behalf of
+            European and South American internationals.
           </p>
         </Container>
       </section>
 
       <section className="py-20">
         <Container>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {entries.map((entry, i) => {
               // Odd-count safety net: center a trailing lone card instead of
               // leaving it stuck alone with an empty gap beside it.
@@ -61,21 +63,29 @@ export default function TrackRecordPage() {
               return (
                 <div
                   key={entry.key}
-                  className={`flex gap-5 border hairline-dark p-6 ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[360px]" : ""}`}
+                  className={`border hairline-dark ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[420px]" : ""}`}
                 >
-                  {entry.image && (
-                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
+                    {entry.image ? (
                       <Image
                         src={entry.image.src}
                         alt={entry.image.alt}
                         fill
                         className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
                         style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
-                        sizes="80px"
+                        sizes="(min-width: 768px) 46vw, 92vw"
                       />
-                    </div>
-                  )}
-                  <div>
+                    ) : (
+                      // No photo on file — a styled panel instead of a photo,
+                      // not a placeholder pretending to be one.
+                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ink-2 to-ink-3 p-6">
+                        <p className="text-center font-display text-2xl text-paper/55">
+                          {entry.name}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
                     <p className="text-sm text-muted-dark">{entry.label}</p>
                     <h3 className="mt-1 font-display text-xl text-paper">{entry.name}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-paper/88">{entry.blurb}</p>
