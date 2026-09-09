@@ -214,22 +214,20 @@ export const authorizations: Authorization[] = [
   {
     slug: "edinson-cavani",
     player: "Edinson Cavani",
-    scope: "MLS Authorization",
+    scope: "Uruguayan International",
     detail:
-      "Received direct authorization to present Edinson Cavani to Austin FC, D.C. United and New England Revolution during the 2026 MLS Secondary Transfer Window.",
+      "Presented to Austin FC, New England Revolution, D.C. United, San Jose Earthquakes, New York Red Bulls, San Diego FC and Charlotte FC.",
   },
   {
     slug: "marco-imperiale",
     player: "Marco Imperiale",
-    scope: "MLS Interest Mandate",
-    detail:
-      "Jointly authorized by Carrarese Calcio 1908, together with FIFA-licensed agent Paolo Maria Grimaldi, to assess interest from MLS and affiliated clubs.",
+    scope: "Serie B — Carrarese Calcio",
+    detail: "Presented to MLS clubs league-wide.",
   },
   {
     slug: "maksim-samorodov",
     player: "Maksim Samorodov",
-    scope: "MLS Co-Agent Mandate",
-    detail:
-      "Authorized as co-agent to present Kazakhstan international and Russian Premier League winger Maksim Samorodov for specified MLS opportunities, including Columbus Crew and San Jose Earthquakes.",
+    scope: "Kazakhstan International — Akhmat Grozny",
+    detail: "Presented to Columbus Crew and San Jose Earthquakes.",
   },
 ];
