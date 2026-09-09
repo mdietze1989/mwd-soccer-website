@@ -149,6 +149,7 @@ export const professionalDeals: ProfessionalDeal[] = [
     primaryImage: {
       src: "/images/players/malesevic/monterey-bay-action.jpg",
       alt: "Luka Malesevic in match action for Monterey Bay FC",
+      position: "center top",
     },
     career: [
       { club: "Rio Grande Valley FC Toros", league: "USL Championship", period: "2022", note: "First professional contract" },
