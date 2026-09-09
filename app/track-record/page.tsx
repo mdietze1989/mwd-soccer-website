@@ -91,47 +91,14 @@ export default function TrackRecordPage() {
           {/* Landry — featured, strongest career-management case */}
           <div className="mt-14">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,340px)_1fr]">
-              <div>
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
-                  <Image
-                    src={landry.primaryImage.src}
-                    alt={landry.primaryImage.alt}
-                    fill
-                    className={landry.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
-                    sizes="(min-width: 768px) 340px, 90vw"
-                  />
-                </div>
-                {/* Loudoun + New Mexico as portrait thumbnails (their source photos are
-                    tall action shots); Charleston action stays landscape below — each
-                    keeps its native shape instead of forcing one destructive crop. */}
-                {landry.secondaryImages && landry.secondaryImages.length > 0 && (
-                  <div className="mt-4 grid grid-cols-2 gap-4">
-                    {landry.secondaryImages.slice(0, 2).map((img) => (
-                      <div key={img.src} className="relative aspect-[3/4] overflow-hidden bg-ink-2">
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          fill
-                          className={img.fit === "contain" ? "object-contain" : "object-cover"}
-                          style={img.position ? { objectPosition: img.position } : undefined}
-                          sizes="(min-width: 768px) 170px, 45vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {landry.secondaryImages && landry.secondaryImages.length > 2 && (
-                  <div className="mt-4 relative aspect-[4/3] overflow-hidden bg-ink-2">
-                    <Image
-                      src={landry.secondaryImages[2].src}
-                      alt={landry.secondaryImages[2].alt}
-                      fill
-                      className={landry.secondaryImages[2].fit === "contain" ? "object-contain" : "object-cover"}
-                      style={landry.secondaryImages[2].position ? { objectPosition: landry.secondaryImages[2].position } : undefined}
-                      sizes="(min-width: 768px) 340px, 90vw"
-                    />
-                  </div>
-                )}
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-ink-2">
+                <Image
+                  src={landry.primaryImage.src}
+                  alt={landry.primaryImage.alt}
+                  fill
+                  className={landry.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
+                  sizes="(min-width: 768px) 340px, 90vw"
+                />
               </div>
               <div>
                 <p className="text-sm text-muted-dark">{landry.metaLine}</p>
@@ -144,6 +111,42 @@ export default function TrackRecordPage() {
                 {landry.career && <Timeline steps={landry.career} />}
               </div>
             </div>
+
+            {/* Loudoun + New Mexico as portrait thumbnails (their source photos are
+                tall action shots); Charleston action stays landscape — each keeps its
+                native shape instead of forcing one destructive crop. Given its own
+                full-width row below (rather than stacked in the 340px image column)
+                so it doesn't leave the text column looking short beside a tall stack. */}
+            {landry.secondaryImages && landry.secondaryImages.length > 0 && (
+              <div className="mt-8 max-w-2xl">
+                <div className="grid grid-cols-2 gap-4">
+                  {landry.secondaryImages.slice(0, 2).map((img) => (
+                    <div key={img.src} className="relative aspect-[3/4] overflow-hidden bg-ink-2">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className={img.fit === "contain" ? "object-contain" : "object-cover"}
+                        style={img.position ? { objectPosition: img.position } : undefined}
+                        sizes="(min-width: 768px) 328px, 45vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+                {landry.secondaryImages.length > 2 && (
+                  <div className="mt-4 relative aspect-[16/9] overflow-hidden bg-ink-2">
+                    <Image
+                      src={landry.secondaryImages[2].src}
+                      alt={landry.secondaryImages[2].alt}
+                      fill
+                      className={landry.secondaryImages[2].fit === "contain" ? "object-contain" : "object-cover"}
+                      style={landry.secondaryImages[2].position ? { objectPosition: landry.secondaryImages[2].position } : undefined}
+                      sizes="(min-width: 768px) 672px, 90vw"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Other players */}
@@ -153,36 +156,15 @@ export default function TrackRecordPage() {
                 key={deal.slug}
                 className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[220px_1fr] md:gap-10"
               >
-                <div>
-                  <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden bg-ink-2">
-                    <Image
-                      src={deal.primaryImage.src}
-                      alt={deal.primaryImage.alt}
-                      fill
-                      className={deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
-                      style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
-                      sizes="220px"
-                    />
-                  </div>
-                  {deal.secondaryImages && deal.secondaryImages.length > 0 && (
-                    <div className="mt-4 flex flex-col gap-4">
-                      {deal.secondaryImages.map((img) => (
-                        <div
-                          key={img.src}
-                          className="relative aspect-[4/3] w-full max-w-[220px] overflow-hidden bg-ink-2"
-                        >
-                          <Image
-                            src={img.src}
-                            alt={img.alt}
-                            fill
-                            className={img.fit === "contain" ? "object-contain" : "object-cover"}
-                            style={img.position ? { objectPosition: img.position } : undefined}
-                            sizes="220px"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden bg-ink-2">
+                  <Image
+                    src={deal.primaryImage.src}
+                    alt={deal.primaryImage.alt}
+                    fill
+                    className={deal.primaryImage.fit === "contain" ? "object-contain" : "object-cover"}
+                    style={deal.primaryImage.position ? { objectPosition: deal.primaryImage.position } : undefined}
+                    sizes="220px"
+                  />
                 </div>
                 <div>
                   <p className="text-sm text-muted-dark">{deal.metaLine}</p>
@@ -194,6 +176,29 @@ export default function TrackRecordPage() {
                   </p>
                   {deal.career && deal.career.length > 0 && <Timeline steps={deal.career} />}
                 </div>
+                {/* Supporting photos sit in their own full-width strip below both
+                    columns, rather than stacked under the primary image — that kept
+                    the image column much taller than a short career history, leaving
+                    the text column looking short beside a lot of empty space. */}
+                {deal.secondaryImages && deal.secondaryImages.length > 0 && (
+                  <div className="flex flex-wrap gap-4 md:col-span-2">
+                    {deal.secondaryImages.map((img) => (
+                      <div
+                        key={img.src}
+                        className="relative aspect-[4/3] w-40 overflow-hidden bg-ink-2"
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          className={img.fit === "contain" ? "object-contain" : "object-cover"}
+                          style={img.position ? { objectPosition: img.position } : undefined}
+                          sizes="160px"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -211,8 +216,18 @@ export default function TrackRecordPage() {
           </p>
 
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {clubOpportunities.map((o) => (
-              <div key={o.slug} className="flex gap-5 border hairline-dark p-6">
+            {clubOpportunities.map((o, i) => {
+              // If the list has an odd count, the last card would otherwise sit
+              // alone on the left with an empty gap beside it — center it at
+              // half width instead so it reads as deliberate, not orphaned.
+              const isDangling =
+                clubOpportunities.length % 2 !== 0 &&
+                i === clubOpportunities.length - 1;
+              return (
+              <div
+                key={o.slug}
+                className={`flex gap-5 border hairline-dark p-6 ${isDangling ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[360px]" : ""}`}
+              >
                 {o.image ? (
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink">
                     <Image
@@ -237,7 +252,8 @@ export default function TrackRecordPage() {
                   <p className="mt-2 text-sm leading-relaxed text-paper/88">{o.detail}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>
