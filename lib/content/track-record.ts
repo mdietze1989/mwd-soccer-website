@@ -63,9 +63,8 @@ export const professionalDeals: ProfessionalDeal[] = [
       "Three USL Championship clubs — Loudoun United, New Mexico United, Charleston Battery — with a multi-year move to Athletic Club Boise ahead of the club's 2027 launch.",
     role: "Representation & contract negotiation",
     primaryImage: {
-      src: "/images/players/landry/charleston-signing.jpg",
-      alt: "Houssou Landry signing announcement graphic for Charleston Battery",
-      fit: "contain",
+      src: "/images/players/landry/new-mexico-action.jpg",
+      alt: "Houssou Landry in match action for New Mexico United",
     },
     secondaryImages: [
       {
@@ -135,9 +134,8 @@ export const professionalDeals: ProfessionalDeal[] = [
       "First professional contract with Rio Grande Valley FC in 2022, followed by a move to Monterey Bay FC for 2026.",
     role: "Representation & contract negotiation",
     primaryImage: {
-      src: "/images/players/malesevic/monterey-bay-action.jpg",
+      src: "/images/players/malesevic/action.jpg",
       alt: "Luka Malesevic in match action for Monterey Bay FC",
-      position: "center top",
     },
     career: [
       { club: "Rio Grande Valley FC Toros", league: "USL Championship", period: "2022", note: "First professional contract" },
@@ -153,9 +151,8 @@ export const professionalDeals: ProfessionalDeal[] = [
     summary: "A 2024 loan move to North Texas SC in MLS NEXT Pro.",
     role: "Representation & club placement",
     primaryImage: {
-      src: "/images/players/zanne/north-texas-sc.jpg",
-      alt: "Abdoul Zanne portrait in North Texas SC kit",
-      fit: "contain",
+      src: "/images/players/zanne/action.jpg",
+      alt: "Abdoul Zanne in match action for North Texas SC",
     },
     career: [
       { club: "North Texas SC", league: "MLS NEXT Pro", period: "2024", note: "Loan move from ASEC Mimosas" },
@@ -170,8 +167,8 @@ export const clubOpportunities: ClubOpportunity[] = [
     program: "FC Etzella Ettelbruck | Luxembourg",
     detail: "U.S. market representation.",
     image: {
-      src: "/images/players/amoustapha/portrait.jpg",
-      alt: "Kairou Amoustapha portrait",
+      src: "/images/players/amoustapha/action.jpg",
+      alt: "Kairou Amoustapha in match action for Cancún FC",
     },
   },
   {
