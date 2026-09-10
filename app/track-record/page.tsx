@@ -31,10 +31,14 @@ export default function TrackRecordPage() {
   // size comparison -- you scroll past one, then the next. A supporting line
   // is omitted rather than used to explain what Mike's role wasn't (e.g.
   // representation-only) -- the fact stands on its own or it doesn't appear.
+  //
+  // Authorizations are rendered separately, below: all three share the exact
+  // same underlying fact (presented directly to MLS clubs), so saying that
+  // once and listing the three names reads as grouped and confident: saying
+  // it three times in three identical-looking panels just reads as repetition.
   const entries: Entry[] = [
     ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
     ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
-    ...authorizations.map((a) => ({ key: a.slug, name: a.player, label: a.scope, blurb: a.detail, image: a.image })),
   ];
 
   return (
@@ -74,29 +78,29 @@ export default function TrackRecordPage() {
                     />
                   </div>
                 )}
-                {entry.image ? (
-                  <div>
-                    <p className="text-sm text-muted-dark">{entry.label}</p>
-                    <h3 className="mt-1 font-display text-3xl text-paper">{entry.name}</h3>
-                    {entry.blurb && (
-                      <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
-                    )}
-                  </div>
-                ) : (
-                  // No photo on file for these -- lead with the caliber tag
-                  // (already a true, earned fact) at full statement size
-                  // instead of small gray text over a name, so the row reads
-                  // as a deliberate statement rather than a sparse leftover.
-                  <div>
-                    <p className="font-display text-4xl text-paper md:text-5xl">{entry.label}</p>
-                    <p className="mt-3 text-base text-accent">{entry.name}</p>
-                    {entry.blurb && (
-                      <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
-                    )}
-                  </div>
-                )}
+                <div>
+                  <p className="text-sm text-muted-dark">{entry.label}</p>
+                  <h3 className="mt-1 font-display text-3xl text-paper">{entry.name}</h3>
+                  {entry.blurb && (
+                    <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                  )}
+                </div>
               </div>
             ))}
+
+            <div className="border hairline-dark bg-ink-2 p-8 md:p-10">
+              <p className="font-display text-4xl text-paper md:text-5xl">
+                Presented directly to MLS clubs
+              </p>
+              <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                {authorizations.map((a) => (
+                  <div key={a.slug}>
+                    <h3 className="font-display text-xl text-paper">{a.player}</h3>
+                    <p className="mt-1 text-sm text-accent">{a.scope}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </section>
