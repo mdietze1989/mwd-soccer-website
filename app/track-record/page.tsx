@@ -72,11 +72,23 @@ export default function TrackRecordPage() {
                     />
                   </div>
                 )}
-                <div>
-                  <p className="text-sm text-muted-dark">{entry.label}</p>
-                  <h3 className="mt-1 font-display text-3xl text-paper">{entry.name}</h3>
-                  <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
-                </div>
+                {entry.image ? (
+                  <div>
+                    <p className="text-sm text-muted-dark">{entry.label}</p>
+                    <h3 className="mt-1 font-display text-3xl text-paper">{entry.name}</h3>
+                    <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                  </div>
+                ) : (
+                  // No photo on file for these -- lead with the caliber tag
+                  // (already a true, earned fact) at full statement size
+                  // instead of small gray text over a name, so the row reads
+                  // as a deliberate statement rather than a sparse leftover.
+                  <div>
+                    <p className="font-display text-4xl text-paper md:text-5xl">{entry.label}</p>
+                    <p className="mt-3 text-base text-accent">{entry.name}</p>
+                    <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
