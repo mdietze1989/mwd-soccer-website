@@ -18,7 +18,7 @@ type Entry = {
   key: string;
   name: string;
   label: string;
-  blurb: string;
+  blurb?: string;
   image?: ImageRef;
 };
 
@@ -28,7 +28,9 @@ export default function TrackRecordPage() {
   // whether the underlying record is a signed contract, a trial, or a
   // presentation. Stacked single-file (one player per row, not a grid) so a
   // big photo next to a photo-less entry never sit side by side inviting a
-  // size comparison -- you scroll past one, then the next.
+  // size comparison -- you scroll past one, then the next. A supporting line
+  // is omitted rather than used to explain what Mike's role wasn't (e.g.
+  // representation-only) -- the fact stands on its own or it doesn't appear.
   const entries: Entry[] = [
     ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
     ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
@@ -54,11 +56,11 @@ export default function TrackRecordPage() {
 
       <section className="py-20">
         <Container>
-          <div className="flex flex-col">
-            {entries.map((entry, i) => (
+          <div className="flex flex-col gap-8">
+            {entries.map((entry) => (
               <div
                 key={entry.key}
-                className={`grid grid-cols-1 gap-8 py-14 ${entry.image ? "md:grid-cols-[380px_1fr] md:items-center" : ""} ${i !== 0 ? "border-t hairline-dark" : ""}`}
+                className={`grid grid-cols-1 gap-8 border hairline-dark bg-ink-2 p-8 md:p-10 ${entry.image ? "md:grid-cols-[380px_1fr] md:items-center" : ""}`}
               >
                 {entry.image && (
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
@@ -76,7 +78,9 @@ export default function TrackRecordPage() {
                   <div>
                     <p className="text-sm text-muted-dark">{entry.label}</p>
                     <h3 className="mt-1 font-display text-3xl text-paper">{entry.name}</h3>
-                    <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                    {entry.blurb && (
+                      <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                    )}
                   </div>
                 ) : (
                   // No photo on file for these -- lead with the caliber tag
@@ -86,7 +90,9 @@ export default function TrackRecordPage() {
                   <div>
                     <p className="font-display text-4xl text-paper md:text-5xl">{entry.label}</p>
                     <p className="mt-3 text-base text-accent">{entry.name}</p>
-                    <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                    {entry.blurb && (
+                      <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+                    )}
                   </div>
                 )}
               </div>

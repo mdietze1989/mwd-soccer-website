@@ -36,7 +36,7 @@ export type ClubOpportunity = {
   slug: string;
   player: string;
   program: string; // e.g. "UNC Charlotte — 2022 MLS Draft Prospect"
-  detail: string;
+  detail?: string; // omit rather than describe the limits of the relationship (e.g. "representation only")
   image?: ImageRef;
 };
 
@@ -165,7 +165,6 @@ export const clubOpportunities: ClubOpportunity[] = [
     slug: "kairou-amoustapha",
     player: "Kairou Amoustapha",
     program: "FC Etzella Ettelbruck | Luxembourg",
-    detail: "U.S. market representation.",
     image: {
       src: "/images/players/amoustapha/action.jpg",
       alt: "Kairou Amoustapha in match action for Cancún FC",
