@@ -55,33 +55,33 @@ export default function TrackRecordPage() {
 
       <section className="py-20">
         <Container>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {entries.map((entry, i) => {
               // A lone trailing card (list length leaves exactly one on the
               // last row) centers in the middle column instead of sitting
-              // off to one side with two empty slots beside it.
-              const isLoneTrailing = entries.length % 3 === 1 && i === entries.length - 1;
+              // off to one side with an empty slot beside it.
+              const isLoneTrailing = entries.length % 2 !== 0 && i === entries.length - 1;
               return (
                 <div
                   key={entry.key}
-                  className={`flex gap-5 border hairline-dark p-6 ${isLoneTrailing ? "md:col-start-2" : ""}`}
+                  className={`flex gap-6 border hairline-dark p-8 ${isLoneTrailing ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[420px]" : ""}`}
                 >
                   {entry.image && (
-                    <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg bg-ink">
+                    <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg bg-ink">
                       <Image
                         src={entry.image.src}
                         alt={entry.image.alt}
                         fill
                         className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
                         style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
-                        sizes="96px"
+                        sizes="112px"
                       />
                     </div>
                   )}
                   <div>
                     <p className="text-sm text-muted-dark">{entry.label}</p>
-                    <h3 className="mt-1 font-display text-xl text-paper">{entry.name}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-paper/88">{entry.blurb}</p>
+                    <h3 className="mt-1 font-display text-2xl text-paper">{entry.name}</h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
                   </div>
                 </div>
               );
