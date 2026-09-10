@@ -64,17 +64,17 @@ export default function TrackRecordPage() {
               return (
                 <div
                   key={entry.key}
-                  className={`flex gap-4 border hairline-dark p-6 ${isLoneTrailing ? "md:col-start-2" : ""}`}
+                  className={`flex gap-5 border hairline-dark p-6 ${isLoneTrailing ? "md:col-start-2" : ""}`}
                 >
                   {entry.image && (
-                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-ink">
+                    <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg bg-ink">
                       <Image
                         src={entry.image.src}
                         alt={entry.image.alt}
                         fill
                         className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
                         style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
-                        sizes="64px"
+                        sizes="96px"
                       />
                     </div>
                   )}
