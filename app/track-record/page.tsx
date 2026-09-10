@@ -23,13 +23,12 @@ type Entry = {
 };
 
 export default function TrackRecordPage() {
-  // One flat list — no "contracts" vs. "trials" vs. "mandates" tiers, and no
-  // one entry blown up bigger than the rest. Same card, same small photo
-  // treatment, same one-line context tag, same one confident sentence, for
-  // every person here, whether the underlying record is a signed contract,
-  // a trial, or a presentation. Card size never tracks whether we happen to
-  // have a good photo on file -- a photo is a modest accent, not the thing
-  // that decides how much weight an entry gets.
+  // One flat list — no "contracts" vs. "trials" vs. "mandates" tiers. Every
+  // entry gets the same one-line context tag and one confident sentence,
+  // whether the underlying record is a signed contract, a trial, or a
+  // presentation. Stacked single-file (one player per row, not a grid) so a
+  // big photo next to a photo-less entry never sit side by side inviting a
+  // size comparison -- you scroll past one, then the next.
   const entries: Entry[] = [
     ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
     ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
@@ -55,37 +54,31 @@ export default function TrackRecordPage() {
 
       <section className="py-20">
         <Container>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            {entries.map((entry, i) => {
-              // A lone trailing card (list length leaves exactly one on the
-              // last row) centers in the middle column instead of sitting
-              // off to one side with an empty slot beside it.
-              const isLoneTrailing = entries.length % 2 !== 0 && i === entries.length - 1;
-              return (
-                <div
-                  key={entry.key}
-                  className={`flex gap-6 border hairline-dark p-8 ${isLoneTrailing ? "md:col-span-2 md:mx-auto md:w-1/2 md:min-w-[420px]" : ""}`}
-                >
-                  {entry.image && (
-                    <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg bg-ink">
-                      <Image
-                        src={entry.image.src}
-                        alt={entry.image.alt}
-                        fill
-                        className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
-                        style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
-                        sizes="112px"
-                      />
-                    </div>
-                  )}
-                  <div>
-                    <p className="text-sm text-muted-dark">{entry.label}</p>
-                    <h3 className="mt-1 font-display text-2xl text-paper">{entry.name}</h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
+          <div className="flex flex-col">
+            {entries.map((entry, i) => (
+              <div
+                key={entry.key}
+                className={`grid grid-cols-1 gap-8 py-14 ${entry.image ? "md:grid-cols-[380px_1fr] md:items-center" : ""} ${i !== 0 ? "border-t hairline-dark" : ""}`}
+              >
+                {entry.image && (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
+                    <Image
+                      src={entry.image.src}
+                      alt={entry.image.alt}
+                      fill
+                      className={entry.image.fit === "contain" ? "object-contain" : "object-cover"}
+                      style={entry.image.position ? { objectPosition: entry.image.position } : undefined}
+                      sizes="(min-width: 768px) 380px, 92vw"
+                    />
                   </div>
+                )}
+                <div>
+                  <p className="text-sm text-muted-dark">{entry.label}</p>
+                  <h3 className="mt-1 font-display text-3xl text-paper">{entry.name}</h3>
+                  <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-paper/88">{entry.blurb}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </Container>
       </section>
