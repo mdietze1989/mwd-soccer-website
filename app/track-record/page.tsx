@@ -23,22 +23,18 @@ type Entry = {
 };
 
 export default function TrackRecordPage() {
-  // One flat list — no "contracts" vs. "trials" vs. "mandates" tiers. Every
-  // entry gets the same one-line context tag and one confident sentence,
-  // whether the underlying record is a signed contract, a trial, or a
-  // presentation. Stacked single-file (one player per row, not a grid) so a
-  // big photo next to a photo-less entry never sit side by side inviting a
-  // size comparison -- you scroll past one, then the next. A supporting line
-  // is omitted rather than used to explain what Mike's role wasn't (e.g.
-  // representation-only) -- the fact stands on its own or it doesn't appear.
-  //
-  // Authorizations are rendered separately, below: all three share the exact
-  // same underlying fact (presented directly to MLS clubs), so saying that
-  // once and listing the three names reads as grouped and confident: saying
-  // it three times in three identical-looking panels just reads as repetition.
+  // One flat list — no "contracts" vs. "trials" vs. "mandates" tiers, and no
+  // separate group for the co-agent entries either: setting them apart from
+  // everyone else, even without a label, reads as "these three are a
+  // different tier." Every entry gets the same card, the same one-line
+  // context tag, and one confident sentence, whether the underlying record
+  // is a signed contract, a trial, or a co-agent arrangement Mike is leading.
+  // A supporting line is omitted rather than used to explain what Mike's
+  // role wasn't -- the fact stands on its own or it doesn't appear.
   const entries: Entry[] = [
     ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
     ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
+    ...authorizations.map((a) => ({ key: a.slug, name: a.player, label: a.scope, blurb: a.detail, image: a.image })),
   ];
 
   return (
@@ -52,8 +48,8 @@ export default function TrackRecordPage() {
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
             Players Mike has placed, presented and worked with across MLS,
             USL Championship, MLS NEXT Pro and the international game —
-            including direct presentations to MLS clubs on behalf of
-            European and South American internationals.
+            including co-agent arrangements he leads for European and
+            South American internationals.
           </p>
         </Container>
       </section>
@@ -87,20 +83,6 @@ export default function TrackRecordPage() {
                 </div>
               </div>
             ))}
-
-            <div className="border hairline-dark bg-ink-2 p-8 md:p-10">
-              <p className="font-display text-4xl text-paper md:text-5xl">
-                Presented directly to MLS clubs
-              </p>
-              <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {authorizations.map((a) => (
-                  <div key={a.slug}>
-                    <h3 className="font-display text-xl text-paper">{a.player}</h3>
-                    <p className="mt-1 text-sm text-accent">{a.scope}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </Container>
       </section>

@@ -215,18 +215,18 @@ export const authorizations: Authorization[] = [
     slug: "edinson-cavani",
     player: "Edinson Cavani",
     scope: "Uruguayan International",
-    detail: "Presented directly to MLS clubs.",
+    detail: "Leading a co-agent arrangement for his MLS representation.",
   },
   {
     slug: "marco-imperiale",
     player: "Marco Imperiale",
     scope: "Serie B Italy",
-    detail: "Presented directly to MLS clubs league-wide.",
+    detail: "Co-agent lead on his MLS representation league-wide.",
   },
   {
     slug: "maksim-samorodov",
     player: "Maksim Samorodov",
     scope: "Russian Premier League",
-    detail: "Presented directly to MLS clubs.",
+    detail: "Leading his co-agent MLS representation.",
   },
 ];
