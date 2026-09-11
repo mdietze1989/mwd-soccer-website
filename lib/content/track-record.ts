@@ -171,6 +171,16 @@ export const clubOpportunities: ClubOpportunity[] = [
     },
   },
   {
+    slug: "samuel-nongoh",
+    player: "Samuel Nongoh",
+    program: "AF Elbasani | Albania",
+    detail: "Secured a trial with FC Nantes.",
+    image: {
+      src: "/images/players/nongoh/action.jpg",
+      alt: "Samuel Nongoh in match action for Cameroon",
+    },
+  },
+  {
     slug: "delasi-batse",
     player: "Delasi Batse",
     program: "UNC Charlotte",
