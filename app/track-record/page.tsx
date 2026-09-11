@@ -31,11 +31,21 @@ export default function TrackRecordPage() {
   // is a signed contract, a trial, or a co-agent arrangement Mike is leading.
   // A supporting line is omitted rather than used to explain what Mike's
   // role wasn't -- the fact stands on its own or it doesn't appear.
-  const entries: Entry[] = [
-    ...professionalDeals.map((d) => ({ key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined })),
-    ...clubOpportunities.map((o) => ({ key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image })),
-    ...authorizations.map((a) => ({ key: a.slug, name: a.player, label: a.scope, blurb: a.detail, image: a.image })),
+  const bySlug = new Map<string, Entry>([
+    ...professionalDeals.map((d): [string, Entry] => [d.slug, { key: d.slug, name: d.player, label: d.careerLine, blurb: d.summary, image: d.primaryImage as ImageRef | undefined }]),
+    ...clubOpportunities.map((o): [string, Entry] => [o.slug, { key: o.slug, name: o.player, label: o.program, blurb: o.detail, image: o.image }]),
+    ...authorizations.map((a): [string, Entry] => [a.slug, { key: a.slug, name: a.player, label: a.scope, blurb: a.detail, image: a.image }]),
+  ]);
+  // Explicit order so the three co-agent entries are actually interspersed
+  // among everyone else, not just re-styled while still sitting together as
+  // a trailing block -- that would only half-satisfy "mix them in."
+  const order = [
+    "houssou-landry", "jack-singer", "gaoussou-samake", "edinson-cavani",
+    "luka-malesevic", "abdoul-zanne", "kairou-amoustapha", "samuel-nongoh",
+    "marco-imperiale", "delasi-batse", "sam-gomez", "kwadwo-amoako",
+    "maksim-samorodov",
   ];
+  const entries: Entry[] = order.map((slug) => bySlug.get(slug)!);
 
   return (
     <>

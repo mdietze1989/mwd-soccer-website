@@ -157,8 +157,8 @@ export default function HomePage() {
             Trusted with specific opportunities across international markets.
           </h2>
           <p className="mt-3 max-w-lg text-[15px] text-paper/80">
-            MWD has received club- and player-side authorization to pursue
-            defined opportunities involving MLS and international clubs.
+            Mike leads co-agent arrangements on defined opportunities
+            involving MLS and international clubs.
           </p>
           <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden border hairline-dark bg-ink md:grid-cols-3">
             {authorizations.map((a) => (
@@ -172,7 +172,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-8">
-            <TextLink href="/track-record#authorizations">Full track record</TextLink>
+            <TextLink href="/track-record">Full track record</TextLink>
           </div>
         </Container>
       </section>
