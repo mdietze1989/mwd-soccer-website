@@ -10,46 +10,34 @@ export const metadata: Metadata = {
     "MWD Football Management's international partners in Senegal, Ghana, Italy and France, collaborating on player representation and club access across North America, West Africa and Europe.",
 };
 
-const locations = ["United States", "Senegal", "Ghana", "Italy", "France"];
-
 export default function InternationalNetworkPage() {
   return (
     <>
       <section className="border-b hairline-dark py-12 md:py-16">
         <Container>
-          <SectionLabel>International Network</SectionLabel>
-          <h1 className="mt-3 max-w-2xl font-display text-4xl text-paper md:text-5xl">
-            One point of contact. A network across three continents.
-          </h1>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
-            MWD players work directly with Mike Dietze, supported by
-            FIFA-licensed partners, trusted contacts and club relationships
-            across North America, West Africa and Europe.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-t hairline-dark pt-6 text-sm text-muted-dark">
-            {locations.map((loc) => (
-              <span key={loc}>{loc}</span>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Mike's international presence — documentary, not a claimed club mandate */}
-      <section className="border-b hairline-dark py-10 md:py-14">
-        <Container>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-[48%_1fr] md:gap-12 md:items-center">
-            <div className="relative aspect-[7/8] w-full overflow-hidden bg-ink-2">
-              <Image
-                src="/images/network/wydad-morocco.jpg"
-                alt="Mike Dietze with Wydad Casablanca's Sporting Director, Youssef Debbagh, during the 2025 U-17 Africa Cup of Nations in Morocco"
-                fill
-                className="object-cover"
-                sizes="(min-width: 768px) 48vw, 90vw"
-              />
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_46%] md:items-center md:gap-14">
+            <div>
+              <SectionLabel>International Network</SectionLabel>
+              <h1 className="mt-3 max-w-xl font-display text-4xl text-paper md:text-5xl">
+                One point of contact. A network across three continents.
+              </h1>
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-paper/85">
+                MWD players work directly with Mike Dietze, supported by
+                FIFA-licensed partners, trusted contacts and club
+                relationships across North America, West Africa and Europe.
+              </p>
             </div>
-            <div className="max-w-sm">
-              <SectionLabel>On the Ground</SectionLabel>
-              <p className="mt-3 text-[15px] leading-relaxed text-paper/88">
+            <div>
+              <div className="relative aspect-[7/8] w-full overflow-hidden bg-ink-2">
+                <Image
+                  src="/images/network/wydad-morocco.jpg"
+                  alt="Mike Dietze with Wydad Casablanca's Sporting Director, Youssef Debbagh, during the 2025 U-17 Africa Cup of Nations in Morocco"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 46vw, 90vw"
+                />
+              </div>
+              <p className="mt-3 text-sm text-muted-dark">
                 Mike Dietze with Wydad Casablanca&apos;s Sporting Director,
                 Youssef Debbagh, during the 2025 U-17 African Cup of Nations
                 in Morocco.
