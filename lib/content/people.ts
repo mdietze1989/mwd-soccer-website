@@ -70,4 +70,12 @@ export const internationalPartners: Person[] = [
     image: "/images/partners/issa-cissokho.jpg",
     imageAlt: "Issa Cissokho",
   },
+  {
+    slug: "boafo-nana-kwame",
+    name: "Boafo Nana Kwame",
+    title: "President, Fortitude Football Academy | Ghana",
+    bio: "Boafo leads Fortitude Football Academy in Accra, helping MWD identify player talent in Ghana.",
+    image: "/images/partners/boafo-nana-kwame.jpg",
+    imageAlt: "Boafo Nana Kwame",
+  },
 ];
