@@ -174,7 +174,7 @@ export const clubOpportunities: ClubOpportunity[] = [
     slug: "samuel-nongoh",
     player: "Samuel Nongoh",
     program: "AF Elbasani | Albania",
-    detail: "Secured a trial with FC Nantes.",
+    detail: "Secured a trial with FC Nantes in Ligue 1 after his 2019 U17 World Cup performance with Cameroon.",
     image: {
       src: "/images/players/nongoh/action.jpg",
       alt: "Samuel Nongoh in match action for Cameroon",
